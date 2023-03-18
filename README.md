@@ -1,2 +1,2 @@
-# php-lectures-code
+# PHP-Lectures-Code:
 PHP Lecture (In-Class) Code
