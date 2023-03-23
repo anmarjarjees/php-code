@@ -5,12 +5,12 @@ class Member {
        private $email; 
 /* 
     To recap, We have 3 common/major access modifiers:
-        > public — A public property or method can be accessed anywhere, from within the class and outside. 
+        > public — public properties or methods can be accessed anywhere, from within the class and outside.
         This is the default visibility for all class members in PHP.
 
-        > protected — A protected property or method can only be accessed from within the class itself or in child or inherited classes i.e. classes that extends that class.
+        > protected — protected properties or methods can only be accessed from within the class itself or in child or inherited classes i.e. classes that extend that class.
 
-        > private — A private property or method is accessible only from within the class that defines it. 
+        > private — private properties or methods is accessible only from within the class that defines it. 
         Even child or inherited classes cannot access private properties or methods.
 */
 

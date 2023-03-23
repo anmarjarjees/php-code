@@ -19,7 +19,7 @@
     - public
     - private
     - protected (later)
-    - Only in Java => default (nothing is set) 
+    - Only in Java => default (if nothing is set) 
     */
 class Member { 
     // Class Properties (attributes):

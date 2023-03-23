@@ -1,6 +1,6 @@
 <?php
 /* 
-Accessing any "static" member (Property or Methods)
+Accessing any "static" member (Property or Method)
 is not relative or related or connected to an object/instance of that class!
 it's relative/related to the class itself
 To access any static member:

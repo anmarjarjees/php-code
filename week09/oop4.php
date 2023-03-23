@@ -1,7 +1,7 @@
 <?php
 // Creating our class:
 class Member {
-    // setting a private properties:
+    // setting private properties:
     private $name;
     private $email;
     
