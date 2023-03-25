@@ -1,6 +1,7 @@
 <!-- We need to embed the header (include/header.php) at the top -->
 <?php
 // include() will continue loading the page even if the file is not found
+// require() will NOT load/render the page if the file is not found
 require 'includes/header.php';
 
 if (isset($_POST['submit'])) {
@@ -15,15 +16,34 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
 	// echo "$userName and $password";
 	
-	
-	
-	// New Code Start:
-	$oneRecord = [
+	// Associative Array => represents one record from our table in the DB:
+    // Hard coding the values! 
+    $oneRecord = [
 		"user_id" => 2,
 		"username" => "alexchow",
         "password" => "alex123"
     ];
-	// New Code End:     
+	/* 
+    FYI: 
+    We are using MySQL with PHP
+    There are other type of Databases that:
+    - doesn't use SQL languages
+    - is not built on tables
+    Like: MongoDB
+    MongoDB is uses with JS frameworks:
+    - Angular
+    - React
+    - Vue
+
+    That's why we have these terms:
+    - MEAN 
+    - MERN 
+    - MEVN 
+    
+    > Angular, React, Vue (JS Framework) => JS with MongoDB
+    > E = Express
+    > N => Node.js
+    */   
 
 
     if ($userName == $oneRecord['username'] && $password== $oneRecord['password']) {
@@ -61,12 +81,6 @@ if (isset($_POST['submit'])) {
     </form>
 
     <p>You can <a href="register.php">register</a> for free to enroll yourself in our website.</p>
-<!-- 
-   PHP form needs two attributes:
-   method
-   action		
--->
-
 
 <!-- We need to embed the footer (include/footer.php) at the bottom -->
 <?php

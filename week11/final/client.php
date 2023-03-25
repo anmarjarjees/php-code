@@ -2,11 +2,19 @@
 <?php
 require 'includes/header.php';
 
-// if NO user is logged-in => go to other page, for example: index.php
+// session_start(); => it's included/executed in the header.php template
+
+// var_dump($_SESSION); // array(0) { }
+
+/* 
+Validate if there is NO logged-in user => redirect the user to the home page
+otherwise => display the client page
+if NO user is logged-in => go to other page, for example: index.php
+*/
 if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
      // if the user is not logged-in, we have to redirect them to the home page or the login page
      // redirect the user:
-     header('location: index.php');
+     header('Location: index.php');
      // exit the current page
      exit();
 }     

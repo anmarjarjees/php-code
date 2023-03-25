@@ -1,7 +1,7 @@
 </main>
 
 <footer>
-    Copyright &copy; 2022 PHP Session Project
+    Copyright &copy; 2023 PHP Session Project
 </footer>
 </div>
 </body>

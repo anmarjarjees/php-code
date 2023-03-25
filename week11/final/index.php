@@ -22,12 +22,34 @@ if (isset($_POST['submit'])) {
 	// echo "$userName and $password";
 	
 	
-	// Our Associative Array for only one record:
-	$oneRecord = [
+	// Associative Array => represents one record from our table in the DB:
+    // Hard coding the values! 
+    $oneRecord = [
 		"user_id" => 2,
 		"username" => "alexchow",
         "password" => "alex123"
     ];
+	/* 
+    FYI: 
+    We are using MySQL with PHP
+    There are other type of Databases that:
+    - doesn't use SQL languages
+    - is not built on tables
+    Like: MongoDB
+    MongoDB is uses with JS frameworks:
+    - Angular
+    - React
+    - Vue
+
+    That's why we have these terms:
+    - MEAN 
+    - MERN 
+    - MEVN 
+    
+    > Angular, React, Vue (JS Framework) => JS with MongoDB
+    > E = Express
+    > N => Node.js
+    */   
 	   
     if ($userName == $oneRecord['username'] && $password== $oneRecord['password']) {
         // echo"<br>Credentials are ok!";
@@ -38,10 +60,11 @@ if (isset($_POST['submit'])) {
 
         // leaving this page "index.php" and jumping to "client.php"
         // You can simply use the PHP header() function to redirect a user to a different page.
-        // The syntax: header("location: URL") 
+        // The syntax: header("Location: URL") 
         // URL: Relative Address (Same Website)
         // URL: Absolute Address (Different Website)
-        // https://www.tutorialrepublic.com/faq/how-to-make-a-redirect-in-php.php
+        // Link: https://www.php.net/manual/en/function.header.php
+        // Link: https://www.tutorialrepublic.com/faq/how-to-make-a-redirect-in-php.php
         header("Location: client.php");
         exit();
     } else {
@@ -56,14 +79,70 @@ if (isset($_POST['submit'])) {
 <!-- simple html form for the user to login-->
 <p>If you are already a member, you can login now to access your portfolio:</p>
 
-<!-- 
-   PHP form needs two attributes:
-   method
-   action		
--->
-    <!-- PHP.net endif -->
-    <?php if (!isset($_SESSION['username']) && !isset($_SESSION['password'])): ?>        
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <!-- 
+        If there is no user then display this form:    
+        PHP.net endif 
+
+        So we need to show the form only if there is no user has logged-in yet:
+        There are different different ways:
+    -->
+
+    <!-- 
+        First complex way: embed a full html structure inside one echo statement! 
+        Link: https://www.php.net/manual/en/function.echo.php
+    -->   
+    <?php     
+        if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+        echo '<form method="post" action="'.$_SERVER["PHP_SELF"].'"
+            <!-- 
+                form elements need one attribute: name
+            -->
+                <div>
+                    <input type="text" name="username" placeholder="Your Username">
+                    <br>
+                    <input type="password" name="password" placeholder="Your Password">
+                </div>
+                <div>
+                    <input type="submit" name="submit" value="Login">
+                    <input type="reset" value="Clear">
+                </div>
+            </form>';
+        }
+    ?>
+
+    <hr>
+    <!-- 
+        Second complex way: embed a full html structure inside one printf statement! 
+        Link: https://www.php.net/manual/en/function.printf.php
+    -->   
+    <?php
+        if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
+            printf('
+            <form method="post" action="%s"
+            <!-- 
+                form elements need one attribute: name
+            -->
+                <div>
+                    <input type="text" name="username" placeholder="Your Username">
+                    <br>
+                    <input type="password" name="password" placeholder="Your Password">
+                </div>
+                <div>
+                    <input type="submit" name="submit" value="Login">
+                    <input type="reset" value="Clear">
+                </div>
+            </form>', $_SERVER["PHP_SELF"]);
+            }
+    ?>
+
+    <hr>
+    <!-- 
+        Finally the easier way: if and endif :-)
+        Link: https://www.php.net/manual/en/control-structures.alternative-syntax.php
+    -->
+    <?php if (!isset($_SESSION['username']) && !isset($_SESSION['password'])): ?>
+        <!-- in between the if endif => place our normal HTML contents -->
+        <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
         <!-- 
             form elements need one attribute: name
         -->
@@ -76,8 +155,8 @@ if (isset($_POST['submit'])) {
                 <input type="submit" name="submit" value="Login">
                 <input type="reset" value="Clear">
             </div>
-        </form>
-           
+        </form>    
+
         <p>You can <a href="register.php">register</a> for free to enroll yourself in our website.</p>
     <?php endif; ?>
 

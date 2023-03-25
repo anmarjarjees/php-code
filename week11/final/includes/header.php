@@ -1,5 +1,7 @@
 <?php
-session_start(); // Start new or resume existing session
+// session_start(); => Start a new or resume existing session
+// This function is needed anytime we use session
+session_start(); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,11 +44,10 @@ session_start(); // Start new or resume existing session
 
                         /* 
                         NOTE:
-                        Since all the navigation list items that we want to toggle are contiguous (besides each other), We can be summarize the previous logic of using 3 if to if/else:
+                        Since these two navigation list items that we want to toggle are contiguous (besides each other), We can combine them if/else:
                         */
                         if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
-                            echo '<li><a href="client.php">Client</a></li>';
-                            echo '<li><a href="logout.php">Logout</a></li>';
+                            echo '<li><a href="client.php">Client</a></li>';                    
                         } else {
                             echo '<li><a href="register.php">Register</a></li>';
                         }
@@ -71,11 +72,17 @@ session_start(); // Start new or resume existing session
                         But if there is some one who has already logged-in
                         We need to execute the line for this <li> of logout option         
                     -->
-                    <!-- <li><a href="logout.php">Logout</a></li> -->
-
-                    <!-- <li><a href="register.php">Register</a></li> -->
-
                     <li><a href="contact.php">Contact Us</a></li>
+
+                    <?php
+                    // if there are username and password kes for the $_SESSION:
+                    if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
+                        echo '<li><a href="logout.php">Logout</a></li>';
+                    } else {
+                        // remember that our index.php page has the login form:
+                        echo '<li><a href="index.php">Login</a></li>';
+                    }
+                    ?>
                 </ul>
             </nav>
         </header>

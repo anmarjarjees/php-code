@@ -1,6 +1,5 @@
 <!-- We need to embed the header (include/header.php) at the top -->
 <?php
-// include() will continue loading the page even if the file is not found
 require 'includes/header.php';
 
 if (true) {

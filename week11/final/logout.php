@@ -26,7 +26,7 @@ if(isset($_SESSION["lastname"])){
 } 
 */
 
-header("location: index.php");
+header("Location: index.php");
 exit();
 
 // no need to add contents!
