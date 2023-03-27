@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
     -->
 
     <!-- 
-        First complex way: embed a full html structure inside one echo statement! 
+        First complex way: embed a full html structure inside one "echo" statement! 
         Link: https://www.php.net/manual/en/function.echo.php
     -->   
     <?php     
@@ -112,7 +112,7 @@ if (isset($_POST['submit'])) {
 
     <hr>
     <!-- 
-        Second complex way: embed a full html structure inside one printf statement! 
+        Second complex way: embed a full html structure inside one "printf" statement! 
         Link: https://www.php.net/manual/en/function.printf.php
     -->   
     <?php
