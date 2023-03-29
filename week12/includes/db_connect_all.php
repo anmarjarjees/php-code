@@ -12,17 +12,24 @@ password: root123
 
 These will be the "global" credential (username and password) to access all the databases in
 phpMyAdmin of "localhost".
+
+IMPORTANT NOTE:
+To connect to a database for creating CRUD application:
+    - host => the website address (the URL)
+    - the username
+    - the password
+    - the database name
 */
+
+
+// $host= 'localhost'; // the default value for most of you (you will use this value)
+// in my pc, the phpMyAdmin => Server: 127.0.0.1:3307
 
 /*
 USING PDO:
 In our code example we will focus on using PDO API (refer to my in-class notes for for details)
 PDO can support many databases: https://www.php.net/manual/en/pdo.drivers.php#pdo.drivers
 */
-
-// First Way: We can save all the above mentioned needed info into simple php variables:
-// $host= 'localhost'; // the default value for most of you (you will use this value)
-// in my pc, the phpMyAdmin => Server: 127.0.0.1:3307
 
 /*
 with using PDO, as a php programmer, we have two options:
@@ -32,6 +39,9 @@ $host='localhost:3307'; // Only for me! you can remove the 3307
 Option2: we can leave the host name to be "localhost" but we have to identify/add the port number to the "dsn"
 I will show this option later.
 */
+
+
+// First Way: We can save all the above mentioned needed info into simple php variables:
 $host='localhost';
 $user='root';
 $password = 'root123'; 
@@ -44,6 +54,7 @@ define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', 'root123');
 define('DB_NAME', 'pdo_intro');
+
 
 /*
 Setting the DSN:
@@ -61,12 +72,12 @@ In PHP we can use either one of these following two ways to create a dsn, please
 for demo and learning purposes I put the two ways below:
 */
 
-// Creating the DSN varaible (2 ways):
+// Creating the DSN varaible (using different format of coding ways):
 
-// Way#1: We can set the variables and values of "dsn" variable using concatenating with .:
+// #1: We can set the variables and values of "dsn" variable using concatenating with .:
 $dsn = 'mysql:host='.$host.';dbname='.$dbname;
 
-// Way#2: Or you can just use the ":
+// #2: Or you can just use the ":
 $dsn = "mysql:host=$host;dbname=$dbname";
 
 /*
@@ -74,16 +85,17 @@ If your port number is not the default one which is 3306
 And you didn't add your port number to the local host like "localhost:3307"
 We have to specify it with the dsn value by adding another parameter name "port":
 */
-$dsn = "mysql:host=$host;dbname=$dbname; port=3307"; // notice that this value will override the previous ones
+$dsn = "mysql:host=$host;dbname=$dbname; port=3307"; // notice that this $dsn will override the previous ones
 
 // Some of you might like to create the DSN as Constant!
 // let's do it :-), we can name this constant to be "PDO_DSN"
 // using define() function:
 // define(DSN Constant Name, DSN string value)
-define('PDO_DSN',"mysql:host=$host;dbname=$dbname");
+define('PDO_DSN',"mysql:host=$host;dbname=$dbname"); // don't forget the port number:
 
+// try to connect to our database then check if there is an error => catch this error!
 try {
-     // You can comment one of them and try the other two just for learning and demo:
+    // You can comment one of them and try the other two just for learning and demo:
     $pdo = new PDO($dsn,$user,$password);
     // $pdo = new PDO($dsn, DB_USERNAME, DB_PASSWORD);
     // $pdo = new PDO(PDO_DSN, DB_USERNAME, DB_PASSWORD);
@@ -101,10 +113,13 @@ try {
         Yes, you can also use the general exception called "Exception"
         and it will work fine also :-)
     */
-
 } catch(PDOException $e) {
-    // using the class PDOException and assign any returned error to an object named $e then using its method getMessage()
-    // we can output the error message and continue loading our application
-    // in such case we can use a simple echo message 
+    /*     
+    using the class PDOException and assign any returned error (exception) 
+    to an object named $e then using its method getMessage()
+    we can output the error message and continue loading our application
+        in such case we can use a simple echo message  
+    */
     echo "Database Connection failed: " . $e->getMessage();
 }
+

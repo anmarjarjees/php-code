@@ -9,32 +9,36 @@ For quick demo, we will use this direct way which is the "PDO Query" to get the 
 In a real application, it's better to use a "prepared statement" as we will do later
 */
 
-$query = $pdo->query('SELECT * FROM posts');
+$sql='SELECT * FROM posts';
+$query = $pdo->query($sql);
+// Returns a PDOStatement object or false on failure.
 
 // let's check/examine the variable $query (checking its value and its datatype):
 echo "<h3>Our variable query:</h3>";
-var_dump($query);
+// var_dump($query);
 
 echo "<hr>";
 // Let's use print_r()
-print_r($query);
+// print_r($query);
 // Output: PDOStatement Object ( [queryString] => SELECT * FROM posts )
 
-/*
+/* 
 Render the content to our page:
 Remember that query() method will return a PDOStatement object that contains the results from the database
-So we can just loop through this PDOStatement object and display its element(s)
+So we can just loop through this PDOStatement object and display all its element(s)
 In such case, we need to use while loop to place our condition for keep looping through this object elements
-Calling a PDO method named "fetch()" to fetch the data in a format that we can parse as PHP developers
+Calling a PDO method named "fetch()" to fetch the data in a format that we can parse as PHP developers then display it to the end user!
+
+Link: https://www.php.net/manual/en/pdostatement.fetch
 
 The fetch() method: 
 ===================
-PDOStatement::fetch — Fetches the next row from a result set
-Controls how the next row will be returned to the caller.
-The returned value of this method must be one of the PDO::FETCH_* constants,
-By default the value will be PDO::ATTR_DEFAULT_FETCH_MODE (which defaults to PDO::FETCH_BOTH).
+> PDOStatement::fetch — Fetches the next row from a result set
+> Controls how the next row will be returned to the caller.
+> The returned value of this method must be one of the PDO::FETCH_* constants,
 
 The three commonly used returned types of fetch() method:
+
 1. PDO::FETCH_BOTH (default):
 returns an array indexed by both column name and 0-indexed column number as returned in your result set
 
@@ -44,7 +48,7 @@ returns an array indexed by column name as returned in your result set
 3. PDO::FETCH_OBJ:
 returns an anonymous object with property names that correspond to the column names returned in your result set
 
-To learn about all the types: https://www.php.net/manual/en/pdostatement.fetch.php
+By default the value will be PDO::ATTR_DEFAULT_FETCH_MODE (which defaults to PDO::FETCH_BOTH)
 
 NOTES:
 - For a PDOStatement object representing a scrollable cursor, this value determines which row will be returned to the caller.
@@ -63,7 +67,9 @@ This method is called fetch().
 So the simplest pattern could be: $query->fetch()
 
 fetch() method can fetch "one record" at a time from our table.
-This method can return different values based on the arguments we pass to the function but we can focus on these 3 values:
+
+This method can return different values based on the arguments we pass to the function,
+but we can focus on these 3 values:
 1. PDO::FETCH_BOTH (default): Both "indexed" array and an "associative" array for each record in our database
 2. PDO::FETCH_ASSOC: an associative array for each record in our database (the most commonly used)
 3. PDO::FETCH_OBJ: an object for each record in our database
@@ -80,19 +86,13 @@ because it returns the a row (record) in readable php format (associative array)
 fetch like any other method/function, it can accept parameters, let's try to use fetch() without arguments, and with arguments
 */
 
-echo "<hr>";
-echo "<br>Our   PDOStatement Object is 'query': ";
-print_r($query);
-echo "Checking The Three Ways of Using fetch() method<br>";
-
 /*
 1. PDO::FETCH_BOTH (default) => Calling the fetch() method without passing any arguments
 This will return an Both: indexed array and an associative array for each record in our database
 */
-$oneRow1 = $query->fetch();
+$oneRow1=$query->fetch(); // oneRow => one row at a time + 1 => only the first record
 
-print_r($oneRow1 ); // we got the first record after running the fetch() for the first time
-
+var_dump($oneRow1);
 /* 
 Array ( 
     [post_id] => 1 
@@ -114,10 +114,11 @@ Array (
     [5] => 2021-09-01 )
 */
 
-echo "<hr>";
+
 // 2. PDO::FETCH_ASSOC: (Most Commonly Used)
+echo "<hr>";
 echo "Using fetch() with argument: PDO::FETCH_ASSOC: <br>";
-$oneRow2 = $query->fetch(PDO::FETCH_ASSOC);
+$oneRow2=$query->fetch(PDO::FETCH_ASSOC);
 print_r($oneRow2); // We will get the second record after running the fetch() for the second time
 /* 
     Output:
@@ -131,28 +132,19 @@ print_r($oneRow2); // We will get the second record after running the fetch() fo
     )
 */
 
-echo "<hr>";
 // 3. PDO::FETCH_OBJ:
+echo "<hr>";
 echo "Using fetch() with argument: PDO::FETCH_OBJ: <br>";
-$oneRow3 = $query->fetch(PDO::FETCH_OBJ);
+$oneRow3=$query->fetch(PDO::FETCH_OBJ);
 print_r($oneRow3); // we will get the third record after running the fetch() for the third time
 /*
     Output:
-
-    stdClass Object ( 
-        [post_id] => 3
-        [title] => HTML5 and CSS3 
-        [body] => Working with HTML5 which is the last version of HTML and using CSS Level 3 [author] => Alex Stevenson [published] => 0 
-        [released] => 2021-09-06 
-    )
-*/
-/* 
-stdClass Object ( 
-    [post_id] => 3 
-    [title] => HTML5 and CSS3 
-    [body] => Working with HTML5 which is the last version of HTML and using CSS Level 3 [author] => Alex Stevenson 
-    [published] => 0 
-    [released] => 2021-09-06 )
+    object(stdClass)#3 (6) { 
+        ["post_id"]=> int(3) 
+        ["title"]=> string(14) "HTML5 and CSS3" 
+        ["body"]=> string(74) "Working with HTML5 which is the last version of HTML and using CSS Level 3" 
+        ["author"]=> string(14) "Alex Stevenson" 
+        ["published"]=> int(0) ["released"]=> string(10) "2021-09-06" }
 */
 
 echo "<hr>";
@@ -161,14 +153,20 @@ echo "Using fetch() with argument: PDO::FETCH_ASSOC (Again): <br>";
 $oneRow4 = $query->fetch(PDO::FETCH_ASSOC);
 print_r($oneRow4); // We will get the forth record   
 
+
 echo "<hr>";
 // if we continue, we will get the record number 5 (but we only have 4 records):
-echo "Using fetch() with argument: PDO::FETCH_ASSOC (Again): <br>";
-    // We can run the query again: $query = $pdo->query('SELECT * FROM posts');
-    // Otherwise, we get nothing
-    // $query = $pdo->query('SELECT * FROM posts');
-    $oneRow5 = $query->fetch(PDO::FETCH_ASSOC);
-    print_r($oneRow5); // No record 5 => will be just empty
+echo "Using fetch() with no arguments:<br>";
+$oneRow5 = $query->fetch(PDO::FETCH_ASSOC);
+print_r($oneRow5); // No record 5 => will be just empty
+var_dump($oneRow5); // bool(false)
+
+/* 
+NOTE: 
+To reset the pointer/cursor to return to the first record:
+We can run the query again: $query = $pdo->query('SELECT * FROM posts');
+Otherwise, we get nothing
+*/
 
 /*
 Finally: In all these examples we just returned one record as a single row,
@@ -186,6 +184,7 @@ To retrieve all records we can place the fetch() in while loop (later)
 3- every time we run the fetch() will stop in the next row
 */
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -195,17 +194,18 @@ To retrieve all records we can place the fetch() in while loop (later)
     <title>PDO Introduction</title>
 </head>
 <body>
+    <!-- Display the contents for the first (associative and indexed) array: oneRow1 -->
     <ul>
-    <?php
-        // as we did in week04 (lesson05)
-
-        foreach ($oneRow1 as $key=>$value) {
-            echo "<li> $key: $value </li>";
-        }
+    <?php 
+    foreach ($oneRow1 as $key=>$value) {
+        echo "<li>$key: $value</li>";
+    }
     ?>
     </ul>
 
+    
     <hr>
+    <!-- Display the contents for the second associative array: oneRow2 -->
     <ul>
     <?php
         foreach ($oneRow2 as $key=>$value) {
@@ -214,7 +214,9 @@ To retrieve all records we can place the fetch() in while loop (later)
     ?>
     </ul>
 
+
     <hr>
+    <!-- Display the contents for the third object: oneRow3 -->
     <ul>
     <?php
         foreach ($oneRow3 as $key=>$value) {
