@@ -9,13 +9,24 @@ For quick demo, we will use this direct way which is the "PDO Query" to get the 
 In a real application, it's better to use a "prepared statement" as we will do later
 */
 
+// SELECT * FROM posts
 $sql='SELECT * FROM posts';
+
+/* 
+PDO::query() prepares and executes an SQL statement in a single function call, returning the statement as a "PDOStatement object".
+query() => returns PDOStatement | false 
+*/
 $query = $pdo->query($sql);
 // Returns a PDOStatement object or false on failure.
 
 // let's check/examine the variable $query (checking its value and its datatype):
-echo "<h3>Our variable query:</h3>";
-// var_dump($query);
+/* 
+echo "<br>Our variable query:";
+var_dump($query); 
+
+OUTPUT:
+object(PDOStatement)#2 (1) { ["queryString"]=> string(19) "SELECT * FROM posts" }
+*/
 
 echo "<hr>";
 // Let's use print_r()
@@ -23,21 +34,20 @@ echo "<hr>";
 // Output: PDOStatement Object ( [queryString] => SELECT * FROM posts )
 
 /* 
-Render the content to our page:
-Remember that query() method will return a PDOStatement object that contains the results from the database
-So we can just loop through this PDOStatement object and display all its element(s)
-In such case, we need to use while loop to place our condition for keep looping through this object elements
-Calling a PDO method named "fetch()" to fetch the data in a format that we can parse as PHP developers then display it to the end user!
+Q) How to render/display the content to our page:
+A) Remember that query() method will return a PDOStatement object that contains the results from the database, We can call a PDO method named "fetch()" to fetch the data in a format that we can parse as PHP developers then display it to the end user!
 
 Link: https://www.php.net/manual/en/pdostatement.fetch
 
-The fetch() method: 
-===================
-> PDOStatement::fetch — Fetches the next row from a result set
+=======================================
+The fetch() method: PDOStatement::fetch 
+=======================================
+> Fetches the "next row" from a result set
 > Controls how the next row will be returned to the caller.
 > The returned value of this method must be one of the PDO::FETCH_* constants,
 
-The three commonly used returned types of fetch() method:
+fetch() method can accept parameters to determine the returned type:
+The three commonly used returned types of fetch() method based on these parameters:
 
 1. PDO::FETCH_BOTH (default):
 returns an array indexed by both column name and 0-indexed column number as returned in your result set
@@ -66,9 +76,9 @@ This method is called fetch().
 
 So the simplest pattern could be: $query->fetch()
 
-fetch() method can fetch "one record" at a time from our table.
+NOTE: fetch() method can fetch "one record" at a time from our table.
 
-This method can return different values based on the arguments we pass to the function,
+fetch() like any other method/function, it can accept parameters, so it returns different values based on the arguments we pass to the function,
 but we can focus on these 3 values:
 1. PDO::FETCH_BOTH (default): Both "indexed" array and an "associative" array for each record in our database
 2. PDO::FETCH_ASSOC: an associative array for each record in our database (the most commonly used)
@@ -82,8 +92,6 @@ We will be checking the 3 ways of using PDO fetch() method of our Result Set obj
 As programmers, we can determine which value we want to receive,
 In general, the argument "PDO::FETCH_ASSOC" is more commonly used
 because it returns the a row (record) in readable php format (associative array) that we can use as programmes
-
-fetch like any other method/function, it can accept parameters, let's try to use fetch() without arguments, and with arguments
 */
 
 /*
@@ -175,8 +183,10 @@ we will use while loop to return all the records in the next file
 
 /*
 Conclusion:
+-----------
 1- fetch() method can return only one record at a time. 
-To retrieve all records we can place the fetch() in while loop (later)
+To retrieve all records we can place the fetch() in while loop, so we can just loop through this PDOStatement object and display all its element(s)
+
 2- fetch() method can accept arguments, the three main arguments
 - No arguments => PDO::FETCH_BOTH => returns (indexed and associative) arrays
 - PDO::FETCH_ASSOC => returns associative array
@@ -203,7 +213,6 @@ To retrieve all records we can place the fetch() in while loop (later)
     ?>
     </ul>
 
-    
     <hr>
     <!-- Display the contents for the second associative array: oneRow2 -->
     <ul>
@@ -213,7 +222,6 @@ To retrieve all records we can place the fetch() in while loop (later)
         }
     ?>
     </ul>
-
 
     <hr>
     <!-- Display the contents for the third object: oneRow3 -->

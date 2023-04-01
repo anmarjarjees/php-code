@@ -1,20 +1,21 @@
 <?php
 /* 
-For practising what we have in a real world project, 
-we will modify the phpMyAdmin to change its default settings
-we will add a simple password instead of using an empty one
-for simplicity, we will use the password "root123"
+For practicing what we have in a real-world project, 
+we modified the phpMyAdmin to change its default settings
+by adding a simple password instead of using an empty default one
+
+For testing and demonstration, we  used the password "root123"
 please refer to my in-class notes for changing/modifying the password
 
-as conclusion:
+Credentials:
 username: root (the same by default)
 password: root123
 
 These will be the "global" credential (username and password) to access all the databases in
-phpMyAdmin of "localhost".
+phpMyAdmin of "localhost" server.
 
 IMPORTANT NOTE:
-To connect to a database for creating CRUD application:
+To connect to a database for creating CRUD application, we need the following 4 things:
     - host => the website address (the URL)
     - the username
     - the password

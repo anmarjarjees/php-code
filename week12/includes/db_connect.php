@@ -20,6 +20,7 @@ try {
 
 } catch(PDOException $e) {
     // If there is an error in database connection, this message will be printed and the application will continue loading
+    // php.net- Link: https://www.php.net/manual/en/exception.getmessage.php
     echo "Database Connection failed: " . $e->getMessage();
     // Using the keyword "throw" to STOP the execution of our app and display the error message
     throw new PDOException($e->getMessage());

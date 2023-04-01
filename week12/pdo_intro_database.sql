@@ -1,8 +1,8 @@
 CREATE DATABASE IF NOT EXISTS pdo_intro;
 
-# populate data into our database 'pdo_intro'
+-- populate data into our database 'pdo_intro'
 
-USE pdo_intro
+USE pdo_intro;
 --
 -- Table structure for table `posts`
 --
@@ -26,3 +26,6 @@ VALUES
 ('PHP and MySQL', 'PHP is the language that was designed to create web applications. it is compatible to work with MySQL.', 'Martin Smith', 1, '2021-09-01'),
 ('HTML5 and CSS3', 'Working with HTML5 which is the last version of HTML and using CSS Level 3', 'Alex Stevenson', 0, '2021-09-06'),
 ('Learning Python', 'Python became a very popular language. It is built-in in English verses and supports the OOP. ', 'Sarah Grayson', 1, '2021-09-06');
+
+-- Check:
+SELECT * FROM posts
