@@ -13,7 +13,7 @@ $dsn = "mysql:host=$host;dbname=$dbname; port=3307";
 
 try {
     // This object $pdo will the one to be used frequently through our CRUD operations
-    // We can give it any name that makes sense to us:
+    // We can give it any name that makes sense to us
     $pdo = new PDO($dsn, $user, $password);
     // testing:
     // echo "Connection Done!";
