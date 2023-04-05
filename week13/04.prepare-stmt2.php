@@ -81,6 +81,21 @@ $isFound = $stmt->execute(['title'=>$pTitle]);
 if ($isFound) {
     $titlePost = $stmt->fetch();
 }
+
+// Example (logic) similar to your assignment3:
+$author = "Alex Chow"; // email in your assignment
+$title = "Why Learning JavaScript?"; // password in your assignment
+$sql = "SELECT * FROM posts WHERE author=:author_name AND title=:title_name";
+$stmt = $pdo->prepare($sql);
+$isFound = $stmt->execute(['author_name' => $author, 'title_name' => $title ]);
+
+if ($isFound) {
+    // in your assignment:
+    // 1. create a session 
+    // 2. direct the user to the member page
+} else {
+    echo "Author and Title not found!";
+}
 ?>
 
 <!DOCTYPE html>

@@ -25,6 +25,8 @@ Let's use a variable to save the sql statement:
 */
 $sql1 = "SELECT * FROM posts WHERE author ='$author'";
 
+
+// Another task:
 // Insert the following values into posts table:
 // We should take them from an HTML form (assignment#2)
 $title="PDO Prepared Statement";
@@ -34,7 +36,7 @@ $published=1;
 $released="2021-10-05";
 /* 
 INSERT INTO posts (title,body,author,published,released) 
-VALUES ()
+VALUES (...)
 */
 $sql2 = "INSERT INTO posts (title,body,author,published,released) 
 ($title,$body,$author,$published,$released)";
@@ -42,6 +44,7 @@ $sql2 = "INSERT INTO posts (title,body,author,published,released)
 echo "<p>the SQL statement is: $sql1</p>";
 echo "<p>the SQL statement is: $sql2</p>";
 echo "<hr>";
+
 
 /*
 Action#2: The Official Way (With using Prepared Statements)
@@ -51,11 +54,9 @@ There two ways to implement the "Prepare Statement":
 - Named Placeholders => ONLY for PDO
 */
 
-
 // The simple SQL Statement: 
 // SELECT * FROM posts WHERE author ='Martin Smith' OR title='Back-End Development with PHP and MySQL';
 $sqlQuery = "SELECT * FROM posts WHERE author =? OR title=?";
-
 
 /* 
 To review about what we did before:
@@ -152,7 +153,7 @@ Based on what we have set initially
 */
 $publishedPosts = $stmt->fetchAll();
 // for testing:
-
+// var_dump($publishedPosts); // :-)
 
 /*
 Based on the condition that we set for the WHERE clause in our SELECT statement and our data,
@@ -166,7 +167,7 @@ We will have 3 records (be carful this might be changed depending on what we hav
 // Task: Selecting all the posts:
 // Simple SQL Statement (MySQL) in phpMyAdmin: SELECT * FROM posts;
 
-// Prepare => Execute => Fetch
+// 1) Prepare => 2) Execute => 3) Fetch
 $stmt=$pdo->prepare("SELECT * FROM posts");
 $stmt->execute();
 
@@ -194,9 +195,12 @@ $allPosts = $stmt->fetchAll(PDO::FETCH_OBJ);
     <h2>Published Posts</h2>
     <!-- Render the posts array nicely for our clients: -->
     <?php
-    // publishedPosts is an associative array:
-        // publishedPosts is an associative array:
         foreach ($publishedPosts as $post) {
+            /* 
+            Thinking about the foreach logic:
+            $publishedPosts => 3 associative arrays
+            $post => 1 associative array
+            */
             echo "<br>Title: ".$post['title']."<br>";
             echo "<br>Article: ". $post['body']. "</br>";
             echo "<br>Author: ". $post['author']. "</br>";

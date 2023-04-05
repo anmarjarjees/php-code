@@ -4,7 +4,12 @@ require_once('include/db_connect.php');
 // query() method => returns PDOStatement | false 
 $query = $pdo->query('SELECT * FROM posts');
 
-// ClassName::ConstantName => PDO::FETCH_ASSOC
+/* 
+ClassName::ConstantName 
+PDO::FETCH_ASSOC => Associative Array
+PDO::FETCH_OBJ => Object
+PDO::BOTH (default) => Indexed Array and Associative Array 
+*/
 $row1 = $query->fetch(PDO::FETCH_ASSOC);
 // first record/row => running for the first time
 print_r($row1);
@@ -20,24 +25,32 @@ Array (
 )
 */
 
-$row2 = $query->fetch(PDO::FETCH_ASSOC);  // returns the second record/row => running for the second time
+// running fetch() for the second time => returns the second record/row
+$row2 = $query->fetch(PDO::FETCH_ASSOC);  
 print_r($row2);
 echo "<br><br>";
 
+// running fetch() for the third time => returns the third record/row
 $row3 = $query->fetch(PDO::FETCH_ASSOC);
 print_r($row3);
 echo "<br><br>";
 
+// running fetch() for the fourth time => returns the fourth record/row
 $row4 = $query->fetch(PDO::FETCH_ASSOC);
 print_r($row4);
 echo "<br><br>";
 
 // Below there is no record#5
+// running fetch() for the fifth time => returns FALSE
 $row5 = $query->fetch(PDO::FETCH_ASSOC);
 print_r($row5); // it will just show the boolean value of "false" which is nothing
-// for testing, we can use gettype() function:
-// https://www.w3schools.com/php/func_var_gettype.asp
+
+/* 
+for testing, we can use gettype() function:
+https://www.w3schools.com/php/func_var_gettype.asp 
+*/
 print(gettype($row5)); // boolean
+echo "row5 value: $row5 <br>";
 echo "<br><br>";
 
 /*
@@ -51,6 +64,18 @@ just by placing the syntax inside the while() loop condition:
         // keep repeating the same code
     }
 */
+
+echo "<hr><hr>";
+$query = $pdo->query('SELECT * FROM posts');
+// PDO::FETCH_NUM => will fetch an indexed array
+while ($row = $query->fetch(PDO::FETCH_NUM)) {
+    /* 
+    first iteration#1: $row = [ first record as an indexed array ]
+    second iteration#2: $row = [ second record as an indexed array ]
+    and so on...
+    */
+    echo "<br>$row[1] by $row[3]"; // output: post title and author name
+}
 
 echo "<hr><hr>";
 // Yes, we do need to run our query again to reset the fetch() counter to go to the first record:
@@ -83,11 +108,13 @@ while($row = $query->fetch(PDO::FETCH_ASSOC)) {
 </head>
 <body>
     <!-- lets' try to output all the fields in very simple/plain format: -->
+	<h2>Fetch as an associative array</h2>
     <?php
-    echo "<h2>Fetch as an associative array</h2>";
+    
     // Again :-) don't forget to rerun the query method:
     $query = $pdo->query('SELECT * FROM posts'); // having a new result set into the variable $query
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+        // the keys of the Associative array => the columns/field title
         echo "Post ID: ".$row['post_id'];
         echo "<br>Post Title: ".$row['title'];
         echo "<br>Post Article: ".$row['body'];
@@ -95,10 +122,8 @@ while($row = $query->fetch(PDO::FETCH_ASSOC)) {
         echo "<br>Post Release Date: ".$row['released'];
         echo "<br><br>";
     }
-    
 
     echo "<hr>";
-
     echo "<h2>Fetch as an object</h2>";
     // But again we do need to rerun the query:
     $query = $pdo->query('SELECT * FROM posts');

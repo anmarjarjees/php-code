@@ -2,7 +2,7 @@
 // php.net
 /*
 foreach loop:
-- can be use with associative arrays and indexed array
+- can be used with associative arrays and indexed array
 - can target the "values" and the "keys" of an associative array
 - foreach ==> handling array and certain types of objects
 - The template/pattern of "foreach":
