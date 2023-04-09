@@ -20,6 +20,7 @@ $author = "Alex Chow";
 
 /*
 Action#1: The Basic Way (With OUT using Prepared Statements/Bad Example)
+---------
 Getting information form the user and run them against our database
 Let's use a variable to save the sql statement:
 */
@@ -48,7 +49,7 @@ echo "<hr>";
 
 /*
 Action#2: The Official Way (With using Prepared Statements)
-
+---------
 There two ways to implement the "Prepare Statement":
 - Anonymous Positional Placeholder (?) => Also works with MySQLi
 - Named Placeholders => ONLY for PDO
@@ -177,9 +178,10 @@ we can pass this mode as a argument to execute() method
 */
 $allPosts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-// ===================================================
-// Second Way: the named identifiers as placeholders: => We will do it in the next file :-)
-// ===================================================
+
+
+// Second Way: the named identifiers as placeholders: => In the next file :-)
+// ===========
 ?>
 
 <!DOCTYPE html>

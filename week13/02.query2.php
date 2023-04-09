@@ -26,6 +26,8 @@ require_once 'include/db_connect.php';
 PDO::ATTR_DEFAULT_FETCH_MODE
 Set the default fetch mode. A description of the modes and how to use them is available in the
 */
+
+// setAttribute(ATTRIBUTE, OPTION)
 $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
 // Yes, we do need to run our query again to reset the fetch() counter to go to the first record:

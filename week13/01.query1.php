@@ -7,8 +7,9 @@ $query = $pdo->query('SELECT * FROM posts');
 /* 
 ClassName::ConstantName 
 PDO::FETCH_ASSOC => Associative Array
-PDO::FETCH_OBJ => Object
+PDO::FETCH_NUM => Indexed Array
 PDO::BOTH (default) => Indexed Array and Associative Array 
+PDO::FETCH_OBJ => Object
 */
 $row1 = $query->fetch(PDO::FETCH_ASSOC);
 // first record/row => running for the first time
@@ -110,7 +111,6 @@ while($row = $query->fetch(PDO::FETCH_ASSOC)) {
     <!-- lets' try to output all the fields in very simple/plain format: -->
 	<h2>Fetch as an associative array</h2>
     <?php
-    
     // Again :-) don't forget to rerun the query method:
     $query = $pdo->query('SELECT * FROM posts'); // having a new result set into the variable $query
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
@@ -133,7 +133,6 @@ while($row = $query->fetch(PDO::FETCH_ASSOC)) {
         
         // echo "Post ID: ".$row['post_id'];
         // Fatal error: Uncaught Error: Cannot use object of type stdClass as array 
-
         echo "Post ID: ".$row->post_id;
         echo "Post Title: ". $row->title. "<br>";
         echo "Post Article: ". $row->body ."<br>";

@@ -1,5 +1,7 @@
 <?php
+// Include database config file => to get our PDO object 
 require_once 'include/db_connect.php';
+
 /* 
 Setting the default fetch() method to be "PDO::FETCH_ASSOC"
 by using setAttribute() method of the class PDO object
@@ -15,6 +17,7 @@ Below we will named placholders, each one with a unique name:
 Previously, we used only two ? marks, but now we use names
 */
 
+// 1) Prepare => 2) Execute => 3) Fetch (if needed)
 // The simple SQL Statement: 
 // SELECT * FROM posts WHERE author ='Martin Smith' OR title='Back-End Development with PHP and MySQL';
 $sqlQuery = "SELECT * FROM posts WHERE author =:post_author OR title=:post_title";
@@ -47,14 +50,24 @@ Array (
 
 echo "<hr>";
 echo "<br>Second Example:<br>";
-// Another Example:
+
+// Assignment hint :-)
+// Another Example (similar to assignment):
 // Select the record/row/post with that has the title "PHP and MySQL"
 // The simple SQL statement: 
 // SELECT * FROM posts WHERE title='PHP and MySQL'
 
 // our PHP variable to have the value of "PHP and MySQL" as hard-coded value
 // the variable is named $pTitle short for "post title"
-$pTitle = "PHP and MySQL"; // In real application => $pTitle = $_POST['post_title'];
+$pTitle = "PHP and MySQL"; // In real application example: $pTitle = $_POST['post_title'];
+
+
+// Assignment hint :-)
+/* 
+In your assignment, you will need to check if the new user's email is already exist or not
+Getting the user's email, example:
+$email = $_POST['email']
+*/
 
 // You can try to change it to:
 // $pTitle = "PHP and MySQL Programming"; // We don't have a post with this title
@@ -62,6 +75,12 @@ $pTitle = "PHP and MySQL"; // In real application => $pTitle = $_POST['post_titl
 // Notice below, the identifier name is ":title" as the column name to speed the process
 // we can name it $x, $y, etc...
 $sql = 'SELECT * FROM posts WHERE title = :title';
+
+// Assignment hint :-)
+/* 
+In your assignment, you will need to modify the SELECT statement with the WHERE clause to check the email:
+    example => email =:user_email
+*/
 
 // 1. using PDO method named "prepared()"
 $stmt = $pdo->prepare($sql);
@@ -77,9 +96,30 @@ Remember that execute() returns a boolean value:
 */
 $isFound = $stmt->execute(['title'=>$pTitle]);
 
+// Assignment hint :-)
+/* 
+In your assignment, you will need to modify the execute method parameters:
+    example => 'email' =:user_email
+*/
+
 // $post=false; // no need for this line
 if ($isFound) {
     $titlePost = $stmt->fetch();
+}
+
+// Assignment hint :-)
+/* 
+In your assignment, you will need to modify the if condition as shown in the example below:
+*/
+if ($isFound) {
+    // save the message to a varaible then, you can echo it inside the official HTML form
+    $errorMsg = "Sorry, this email is taken";
+} else {
+    /* 
+    It means this email is new (not taken or not an already registered user):
+    - Prepare the "INSERT INTO..." SQL Query with the name identifiers
+    - Execute the query by passing the parameter as an array
+    */
 }
 
 // Example (logic) similar to your assignment3:
