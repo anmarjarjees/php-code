@@ -59,7 +59,7 @@ define('DB_NAME', 'pdo_intro');
 
 /*
 Setting the DSN:
-DSN is for "Data Source Name" which a nice way to save the required information
+DSN is for "Data Source Name" which is a nice way to save the required information
 for initializing our pdo object to connect to our database
 
 The DSN is just a string varaible that contains the following information as a string value:

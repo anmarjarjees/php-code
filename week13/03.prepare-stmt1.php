@@ -50,7 +50,7 @@ echo "<hr>";
 /*
 Action#2: The Official Way (With using Prepared Statements)
 ---------
-There two ways to implement the "Prepare Statement":
+Two ways to implement the "Prepare Statement":
 - Anonymous Positional Placeholder (?) => Also works with MySQLi
 - Named Placeholders => ONLY for PDO
 */
