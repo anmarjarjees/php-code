@@ -8,7 +8,7 @@ require_once 'include/db_connect.php';
 $postId = 6; // This is the post id for the record that we need to delete
 
 // Prepare:
-// For simplicity, developers use the same names for the table columns for their name identifiers
+// For simplicity, developers use the same names of the table columns for their name identifiers
 $stmt = $pdo->prepare('DELETE FROM posts WHERE post_id=:post_id');
 
 // Execute:
@@ -16,16 +16,22 @@ $stmt->execute(['post_id'=>$postId]);
 
 $count1 = $stmt->rowCount();
 
+/* 
+Remember in PHP the value of 0 => False
+any other numeric value => True
+*/
 echo (($count1) ?  "<br>Post with id value of $postId has been deleted!" : "<br>Sorry no post has been deleted!");
 
 echo "<hr>";
 
 // One more example for more clarifications :-)
-// Task: Delete any record whose author name has the text "Alex"
-// in our database, we have two records with first name "Alex":
-// - Alex Chow
-// - Alex Stevenson
-// - Alex White
+/*
+Task: Delete any record whose author name has the text "Alex"
+in our database, we have two records with first name "Alex":
+- Alex Chow
+- Alex Stevenson
+- Alex White
+*/
 
 /*
 Simple SQL Statement: DELETE FROM post WHERE author LIKE "%alex%";
@@ -49,4 +55,4 @@ $stmt->execute(['name'=>'%'.$name.'%']);
 
 $count2 = $stmt->rowCount();
 
-echo "<br>$count2 record(s) has/have been deleted!";
+echo (($count2) ? "<br>$count2 record(s) has/have been deleted!" : "<br>Nothing happened!");

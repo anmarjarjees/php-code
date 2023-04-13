@@ -12,7 +12,8 @@ INSERT INTO `posts`
 VALUES (NULL, 'PDO vs MySQLi', 'PDO is PHP API to talk to any DBMS while MySQLi can communicate with MySQL DBMS only.', 'Sarah Davidson', '1', '2021-10-08');
 */
 
-// Assuming that we received these info from a user form
+// Assuming that we received these info from a user form:
+// $postTitle = $_POST['title'];
 $postTitle = "PDO vs MySQLi";
 $postBody ="PDO is PHP API to talk to any DBMS while MySQLi can communicate with MySQL DBMS only.";
 $postAuthor = "Sarah Davidson";
@@ -23,7 +24,7 @@ $postCreatedDate = "2021-10-08";
 $sql = 'INSERT INTO posts (title, body, author, published, released)
         VALUES (:title, :body, :author, :published, :released)';
 
-// 1. Prepare:
+// STEP#1. Prepare:
 $stmt = $pdo->prepare($sql);
 
 /*
@@ -72,6 +73,9 @@ For complete list of the PDO Constants (Predefined Constants) that can be used w
 TR: https://www.tutorialrepublic.com/php-tutorial/php-mysql-prepared-statements.php
 */
 
+// STEP#2. Bind:
+// $stmt->bindParam() or $stmt->bindValue()
+
 // Bind parameters to statement object
 $stmt->bindParam(':title',$postTitle, PDO::PARAM_STR);
 $stmt->bindParam(':body',$postBody, PDO::PARAM_STR);
@@ -79,6 +83,8 @@ $stmt->bindValue(':author',"Sarah Davidson"); // it's better to use bindParam() 
 $stmt->bindParam(':published',$isPublished, PDO::PARAM_STR);
 $stmt->bindValue(':released','2021-10-08'); // it's better to use bindParam() with a varaible "$postCreatedDate"
 
+// STEP#3. Execute:
 // then we just need to execute the statement by calling execute() method with OUT any arguments!
 $stmt->execute();
 
+// STEP#4. Fetch/Fetch All => When we need to display result to the user

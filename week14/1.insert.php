@@ -12,7 +12,7 @@ $email=
 $password=
 */
 
-// PHPStrom IDE (1 year free student)
+// PHPStorm IDE (1 year free student)
 
 // Assuming that we received these info from a user form
 $postTitle = "Adobe Dreamweaver"; // $_POST['title']
@@ -45,6 +45,16 @@ $sql='INSERT INTO posts (title, body, author, published, released)
 VALUES(:title, :article, :author, :published, :released)';
 
 $stmt = $pdo->prepare($sql);
+
+/* 
+PHP.NET: execute() => Returns "true" on success or "false" on failure.
+
+PHP.NET: rowCount() => returns the number of rows affected 
+by the last DELETE, INSERT, or UPDATE statement 
+executed by the corresponding PDOStatement object.
+
+Link: https://www.php.net/manual/en/pdostatement.rowcount
+*/
 
 $isInserted= $stmt->execute(
     [

@@ -32,15 +32,29 @@ $count = $stmt->rowCount();
 
 if ($count) {
     echo "<h3>Selected Posts</h3>";
+    // Remember: fetch() => for one record and fetchAll() => for many records
     $posts = $stmt->fetchAll(); // return a list of array(s)
     // $posts = is a list of 1 or many associative array(s)
 
     foreach ($posts as $post) {
-        // $post => will represent an individual associative
+        /* 
+        NOTE:
+        Remember: $post => will represent an individual associative array for each record
+        
+        echo "<br>".$post;
+        Warning: Array to string conversion
+        */
         echo $post['title'].'<br>';
         echo $post['author'].'<br>';
+        // and so on for the rest...
     }
+} else {
+    // 1) save any custom message to a variable:
+    $result="<br>No record found!";
+    // 2) then echo the variable inside the HTML body (when you have a full page)
+    echo $result;
 }
+
 
 // Task: Try to repeat the same code bu with using the keyword "LIMIT"
 $rec_limit=1;
