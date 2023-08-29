@@ -7,7 +7,7 @@ require_once 'include/db_connect.php';
 // Assuming that we will update the record (post) with id value of "4"
 $postId = 4; // This is the post id for the record that we need to update
 
-// Remember the post tile is "Learning Python"
+// Remember the post title is "Learning Python"
 // We will change it with the new value of this postTitle variable:
 $pTitle = "Python Language";
 
@@ -39,7 +39,7 @@ $count = $stmt->rowCount(); # either 0 or 1 in this cases
 if ($count==1) {
     echo "<br>Post has been updated";
 } else {
-    echo "<br>Sorry updating post is not done!";
+    echo "<br>No post has been updated!";
 }
 
 echo "<hr>";

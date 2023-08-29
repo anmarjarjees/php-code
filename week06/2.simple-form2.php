@@ -39,6 +39,7 @@ if ($_POST) { // Since we used method="POST" => $_POST has some data => TRUE
 
 // Please don't write any code for handling the form outside the if block!!!!
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

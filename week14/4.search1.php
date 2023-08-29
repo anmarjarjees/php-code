@@ -2,11 +2,19 @@
 // Include database config file => to get our PDO object 
 require_once 'include/db_connect.php';
 
-$firstName = "martin";
+$anyName = "martin";
 
-// Searching for any name that has "martin"
-// Using Anonymous Positional Parameters:
-// Prepare:
+// Searching for any name that has "martin" (first or last)
+/* 
+Prepare Statement: Using
+> Named Identifier
+> Anonymous Positional Parameters:
+*/
+
+// Named Identifier:
+// $stmt = $pdo->prepare('SELECT * FROM posts WHERE author LIKE :name');
+
+// Anonymous Positional Parameters:
 $stmt = $pdo->prepare('SELECT * FROM posts WHERE author LIKE ?');
 
 // Execute:
@@ -17,15 +25,15 @@ true => only means that the SQL statement has been run successfully
 */
 
 // I will leave this code for leaning and demo (useless to check the returned bool of execute())
-// Yes Funny to use $isFound
-$isFound = $stmt->execute(['%'.$firstName.'%']);
+// We should NOT use $isFound boolean varaible to retrieve the True/False from execute!
+$isFound = $stmt->execute(['%'.$anyName.'%']);
 // testing:
 echo "<br>Dumping isFound: ";
 var_dump($isFound); 
 echo "<br>";
 
 // Below we are re-executing the SQL statement for the second use of fetch method
-$stmt->execute(['%'.$firstName.'%']);
+$stmt->execute(['%'.$anyName.'%']);
 
 // The official accurate correct way is using rowCount():
 $count = $stmt->rowCount();
@@ -44,8 +52,8 @@ if ($count) {
         echo "<br>".$post;
         Warning: Array to string conversion
         */
-        echo $post['title'].'<br>';
-        echo $post['author'].'<br>';
+        echo "Post Title: ".$post['title'].'<br>';
+        echo "By: ".$post['author'].'<br>';
         // and so on for the rest...
     }
 } else {

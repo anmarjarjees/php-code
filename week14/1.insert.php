@@ -66,7 +66,7 @@ $isInserted= $stmt->execute(
     ]);
 
 
-// var_dump($x); // bool(true)
+// var_dump($isInserted); // bool(true)
 if ($isInserted) {
     echo "<br>A new post has been added!";
 } else {

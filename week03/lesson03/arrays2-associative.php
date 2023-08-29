@@ -73,16 +73,22 @@
         echo "<br>Honda is a good car! ".$cars['Honda']." It's made in Japan."; // Honda is a good car! Made in Japan
         echo "<br> Honda is a good car! {$cars['Honda']}"; 
 
-  
-
+/* 
+Task:
+Create an associative array named "courses"
+the keys will be the course names
+the values will be the course definition 
+print it using HTML list:
+*/
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Associative Arrays</title>
     <!-- Internal CSS -->
 	<style>
         table {

@@ -66,7 +66,7 @@ $row = $query->fetch();
 */
 
 // Stage#1: Prepare: 
-// using PDO method named "prepared()"
+// using PDO method named "prepare()"
 // Saving the returned filtered/secured statement into a variable named stmt (for statement)
 // This $stmt is the "PDOStatement" object that we need in order to run the execute() method
 // prepare() method -> returns PDOStatement | false
@@ -125,6 +125,7 @@ $stmt->execute([$postAuthor, $postTitle]);
 echo "<hr>";
 // for testing:
 echo "<br>Second Select Result:<br>";
+$post = $stmt->fetch();
 print_r($post);
 /*
 Array ( [post_id] => 1 [title] => Why Learning JavaScript? [body] => JavaScript is the most important language that any developer or programmer should learn. [author] => Alex Chow [published] => 1 [released] => 2021-09-01 )
@@ -138,7 +139,7 @@ Task: Selecting only the published articles:
 Simple SQL Statement (MySQL) in phpMyAdmin: SELECT * FROM posts WHERE published=1;
 */
 
-// 1: prepare => returns an object "PDOStatement Object"
+// 1: prepare() => returns an object "PDOStatement Object"
 $stmt=$pdo->prepare("SELECT * FROM posts WHERE published=?");
 
 // 2: execute => accepts the required values as an array structure
@@ -168,7 +169,7 @@ We will have 3 records (be carful this might be changed depending on what we hav
 // Task: Selecting all the posts:
 // Simple SQL Statement (MySQL) in phpMyAdmin: SELECT * FROM posts;
 
-// 1) Prepare => 2) Execute => 3) Fetch
+// 1) Prepare => 2) Execute => 3) Fetch/FetchAll
 $stmt=$pdo->prepare("SELECT * FROM posts");
 $stmt->execute();
 
@@ -177,7 +178,6 @@ Remember if you like to try fetching the rows as objects
 we can pass this mode as a argument to execute() method
 */
 $allPosts = $stmt->fetchAll(PDO::FETCH_OBJ);
-
 
 
 // Second Way: the named identifiers as placeholders: => In the next file :-)

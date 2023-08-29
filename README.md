@@ -28,7 +28,7 @@ As conclusion:
 
 These will be the "global" credential (username and password) to access all the databases in phpMyAdmin of "localhost".
 
-IMPORTANT NOTE:
+### IMPORTANT NOTE:
 Please be advised that I had to set a different PORT number/value to run MySQL DBMS.
 The default PORT Number that is used by XAMPP to run MySQL (PHPMyAdmin) is: 3306
 But I had to change it to 3307 because 3306 is used by MySQL Workbench DBMS
@@ -114,3 +114,4 @@ PDO class has many methods:
 ---
 
 # Week13: PDO - PART 2
+# Week14: PDO - PART 3

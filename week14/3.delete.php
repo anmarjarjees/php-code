@@ -20,6 +20,13 @@ $count1 = $stmt->rowCount();
 Remember in PHP the value of 0 => False
 any other numeric value => True
 */
+if ($count1) {
+    echo "<br>Post ID $postId has been deleted";
+} else {
+    echo "<br>No post has been deleted!";
+}
+
+// Or with Trinity Operator:
 echo (($count1) ?  "<br>Post with id value of $postId has been deleted!" : "<br>Sorry no post has been deleted!");
 
 echo "<hr>";
@@ -46,13 +53,15 @@ Notice it's not case sensitive Alex or alex is the same in searching for data in
 */
 
 // Overriding the previous PDOStatement object:
-// Prepare:
+// 1) Prepare:
 $stmt = $pdo->prepare('DELETE FROM posts WHERE author LIKE :name');
 
 $name="alex"; // again hard coding for quick demo
-// Execute:
+
+// 2) Execute:
 $stmt->execute(['name'=>'%'.$name.'%']);
 
+// Remember: rowCount() Returns the number of rows affected by the last SQL statement
 $count2 = $stmt->rowCount();
 
 echo (($count2) ? "<br>$count2 record(s) has/have been deleted!" : "<br>Nothing happened!");

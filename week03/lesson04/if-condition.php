@@ -206,13 +206,14 @@ else :
     print( "<p>Your final average is $average. Your grade is: F</p>" );
 endif;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>IF Condition</title>
 </head>
 <body>
     

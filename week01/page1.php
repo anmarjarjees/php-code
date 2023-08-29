@@ -6,7 +6,7 @@ comments Line1
 comments Line2
 */
 
-// our first php function:
+// our first php built-in function:
 phpinfo();
 
 ?>

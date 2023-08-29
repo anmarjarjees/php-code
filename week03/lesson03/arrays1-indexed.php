@@ -125,5 +125,13 @@
         <li><?php echo $myExams[3] ?></li>
         <!-- and so on... -->
     </ul>
+
+    <h1>Employees</h1>
+    <ul>
+        <li><?php echo $employees[0] ?></li>
+        <li><?php echo $employees[1] ?></li>
+        <li><?php echo $employees[2] ?></li>
+        <!-- <li><?php echo $employees[3] ?></li> -->
+    </ul>
 </body>
 </html>

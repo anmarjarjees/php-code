@@ -43,6 +43,12 @@ public double convertMinToHr(int minutes) {
 */
 
 // Step1: Create our function
+
+function getHours() {
+
+}
+
+// or other name :-)
 function convertMinToHr($minutes) {
     $hours = $minutes / 60;
     /*
@@ -53,6 +59,7 @@ function convertMinToHr($minutes) {
 
     $hours = number_format( $hours , 1 );
     return $hours;
+    // echo $hours; // NO USE for code after return! 
 }
 
 // just for fun :-)
@@ -174,7 +181,7 @@ foreach ($numbers as $number) {
 }
 echo "<br>My third total is: $total";
 
-// Function Signiture 
+// Function Signature 
 function getArrayTotal($anyArray) {
     $total = 0; // creating new variable named "total" with initial value of 0
     foreach ($anyArray as $number) {

@@ -139,7 +139,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
         // The same logic as your first assignment
         $result = 1;
         for ( $index = 0; $index < count( $tempArray ); $index++ ) {
-          // keep adding the values to our $total varaible
+          // keep adding the values to our $total variable
           $result *= $tempArray[ $index ];
         }
         return $result; // return the result of multiplication
@@ -178,7 +178,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
       // we have all the values inside $_POST[] array
       $op = $_POST[ 'operation' ];
 
-      // the user choice is saved into a varaible named $op
+      // the user choice is saved into a variable named $op
       // $op = 1 ==> if the user clicked the first radio button
       // $op = 2 ==> if the user clicked the second radio button
      
@@ -232,6 +232,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
 
 // nothing is here (no code is written outside the if condition)
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -11,7 +11,7 @@ $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 /*
 Second Way: the named placeholders
 A named placeholder begins with a colon (:) followed by an identifier (column name)
-Below we are filling the placeholders "column_name = :identifier" with these values $author and $tile
+Below we are filling the placeholders "column_name = :identifier" with these values $author and $title
 
 Below we will named placholders, each one with a unique name:
 Previously, we used only two ? marks, but now we use names
@@ -52,7 +52,7 @@ echo "<hr>";
 echo "<br>Second Example:<br>";
 
 // Assignment hint :-)
-// Another Example (similar to assignment):
+// Another Example (similar to the assignment):
 // Select the record/row/post with that has the title "PHP and MySQL"
 // The simple SQL statement: 
 // SELECT * FROM posts WHERE title='PHP and MySQL'

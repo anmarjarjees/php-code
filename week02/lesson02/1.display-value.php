@@ -17,18 +17,33 @@ Link: https://www.php.net/manual/en/language.types.declarations.php#language.typ
     snake_case (Python) => student_first_name
     kebab-case => :-) main-test
 */
+// In Java => String firstName = "Alex";
 $firstName = "Alex"; // double quotes
 $lastName = 'Tonies'; // single quotes
+
+// In Java => int age = 65;
 $age = 65;
 $total = 55.72; // number can have decimal point using point but not comma
 $avg = 25.67;
 
+// Boolean Variable => Boolean values: true or false
 $isValid = true;
 
 // bad example of a variable name:
 $middleName = 65;
 
 // output => echo or print
+// Hello World
+// PHP functions: echo() or print()
+echo ("Hello World!");
+print("Hello World!");
+// Hello World!Hello World!
+
+// print/echo html elements!
+echo "<hr>"; // can be used without ()
+echo "Hello World!<br>";
+print "Hello World!";
+
 echo ($firstName); 
 // or without () => echo $firstName;
 echo $firstName;
@@ -52,8 +67,10 @@ echo($firstName."<br>");
 print ($lastName);
 
 echo "<hr>";
+// firstName variable AND a literal space AND lastName variable
 echo $firstName." ".$lastName;
 
+echo "<hr>";
 echo $firstName, "\n"; // for a "new line" or a "space"
 echo 'The total of your invoice is: '.$total;
 
@@ -65,13 +82,18 @@ echo 'The total of your invoice is: '.$total;
 	as shown below:		
 */
 
+// printing multiple values with commas:
 // print "<br>", $firstName, " ", $age; // Error => syntax error, unexpected token ","
-echo "<br>", $firstName, " ", $age; // works fine :-)
+echo "<br>", $firstName, " ", $age; // works fine :-) => Alex 65
 
-// echo:
-/* checking the difference between using ' or " with echo */
+
+/* 
+HTML elements can be rendered with ' or "
+*/
+
+/* checking the difference between using ' or " with echo/print */
 // The two lines of code Below no difference between using ' or ":
-echo '<br>We like PHP';
+echo '<br>We like PHP!';
 echo "<br>We like PHP";
 echo "<hr>";
 
@@ -112,13 +134,16 @@ $subject1 = "HTML and CSS"; // in PHP string value either use " or ' like JS
 $subject2 = "JavaScript";
 $subject3 = "PHP";
 
-// Data type
+echo "<hr>";
+// Data type => use a built-in function gettype()
 echo gettype($subject1)."<br>";
 echo gettype($age)."<br>";
 echo gettype($total)."<br>";
+echo gettype($isValid)."<br>";
 
 $docTitle = "Learning PHP";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -133,7 +158,17 @@ $docTitle = "Learning PHP";
 
     <!-- more examples -->
     <p>Hello, <?php echo $firstName ?>. Your age is <?php echo $age ?></p>
+	
+	<!-- SIMPLE EXAMPLE ABOUT UL => UNORDERED LIST: -->
+    <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+    </ul>
 
+	<!-- 
+        TASK: USING THE UL WITH PHP TO OUTPUT THE SUBJECTS AS A LIST?
+    -->
     <ul>
         <li><?php echo $subject1 ?></li>
         <li><?php echo $subject2 ?></li>
