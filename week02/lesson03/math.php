@@ -70,6 +70,18 @@
     // 3. final: 4
     // 4. final: 2
 
+    // More Practice:
+    $a=20;
+    // adding 2 to 20
+    // $a++ => 20+1
+    $a = $a + 2; // $a=22;
+
+    $b = 30; // adding 2,3,....
+    $b += 2;
+
+    $a *=3; // $a*3
+
+    $a /=4;
     ?>
 </body>
 </html>

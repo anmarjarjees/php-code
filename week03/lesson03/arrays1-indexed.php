@@ -24,12 +24,13 @@
     
 	// like in JS:
     $myLuckyNumbers = [90, 34, 17, 21, 12];  // hard coding the values
+    
     // OR:
     $myExams = array (90,89,87,92,91);
 
-     // print ($myExams);
-     // Array to string conversion in
-     // echo ($myExams);
+    // print ($myExams);
+    // Array to string conversion in
+    // echo ($myExams);
 	
     // echo $myLuckyNumbers;
     // Warning: Array to string conversion 
@@ -40,7 +41,7 @@
 
     $users = array('Arthur Smith','Alex Chow','Sarah Grayson'); // the traditional way for creating an array in PHP
     
-    // More Examples:
+    // More Examples: Array of mixed data types:
     $employees = [ 'Sam Simpson', 'Martin Smith', 'Alex Chow' ];
 
     echo "<hr>";
@@ -52,6 +53,11 @@
     $mixedArray = [true, 67.89, 90, "ABC"];
     var_dump($mixedArray);
 
+    /*
+    Unlike other programming languages, 
+    PHP can add a new value to an array just by using []
+    no need to specify the index value as PHP will add it to the end by default
+    */
     $users[]="Martin Smith";
     echo "<hr>";
     var_dump($users);
@@ -100,6 +106,16 @@
 </head>
 <body>
     <h2>Main Users</h2>
+    <!-- Normal HTML Code: -->
+    <ul>
+        <li>Arthur Smith</li>
+        <li>Alex Chow</li>
+        <li>Sarah Grayson</li>
+    </ul>
+
+    <hr>
+
+    <!-- Using HTML with PHP: -->
     <ul>
         <!-- output the first user -->
         <li><?php echo $users[0]; ?></li>

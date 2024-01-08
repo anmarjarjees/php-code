@@ -17,9 +17,17 @@ Link: https://www.php.net/manual/en/language.types.declarations.php#language.typ
     snake_case (Python) => student_first_name
     kebab-case => :-) main-test
 */
+
+// Variable in php:
+
+// Java Example => String firstName = "Alex";
+// Java Example => String language = 'PHP' [X WRONG] 
+// Java Example => char oneLetter = 'A' [OK VALID]
 // In Java => String firstName = "Alex";
+
+// Weakly type language 
 $firstName = "Alex"; // double quotes
-$lastName = 'Tonies'; // single quotes
+$lastName = 'Chow'; // single quotes
 
 // In Java => int age = 65;
 $age = 65;
@@ -35,6 +43,12 @@ $middleName = 65;
 // output => echo or print
 // Hello World
 // PHP functions: echo() or print()
+
+/*
+To recap:
+method => a function written inside a class
+function => written inside the main script (PHP, Python, and JavaScript)
+*/
 echo ("Hello World!");
 print("Hello World!");
 // Hello World!Hello World!
@@ -60,6 +74,17 @@ print ($lastName);
 echo "<hr>"; // double
 echo '<hr>'; // single
 
+echo ("<br>We all like PHP :-)");
+print("<br>PHP is the main language for the web development!");
+
+// with php function can sometimes used without ( and )
+echo "<h1>I am the main heading</h1>";
+print "<p>Here is the main paragraph</p>";
+
+// In Java: System.out.println("Max number is: " + number);
+
+
+// Concatenation => . 
 // one line for display the value of $firstName and <br> element:
 // IN JS, JAVA, C#, Python => + for concatenation
 // In PHP => . 
@@ -135,12 +160,6 @@ $subject2 = "JavaScript";
 $subject3 = "PHP";
 
 echo "<hr>";
-// Data type => use a built-in function gettype()
-echo gettype($subject1)."<br>";
-echo gettype($age)."<br>";
-echo gettype($total)."<br>";
-echo gettype($isValid)."<br>";
-
 $docTitle = "Learning PHP";
 ?>
 
@@ -153,7 +172,19 @@ $docTitle = "Learning PHP";
     <title><?php echo $docTitle ?></title>
 </head>
 <body>
+    
+    <!-- Adding another block of PHP -->
+    <?php
+        echo "<hr>";
+        // Data type => use a built-in function gettype()
+        echo gettype($subject1)."<br>";
+        echo gettype($age)."<br>";
+        echo gettype($total)."<br>";
+        echo gettype($isValid)."<br>";
+    ?>
+
     <h1><em>Display</em>Data</h1>
+    <!-- we can embed php code anywhere as inline element: -->
     <p>Hello Alex, your age is <?php echo $age ?></p>
 
     <!-- more examples -->
@@ -192,5 +223,11 @@ $docTitle = "Learning PHP";
         <li>$subject3</li>        
     </ul>';
     ?>
+
+
+    <footer>
+        <p>Designed and Developed by <?php echo $firstName; echo $lastName ?></p>
+        <p>Designed and Developed by <?php echo $firstName." ".$lastName ?></p>
+    </footer>
 </body>
 </html>

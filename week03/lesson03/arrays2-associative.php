@@ -25,11 +25,10 @@
         value = classroom number
         */
     $classroomNumbers = array(
-        "APA" => 7, // key => value pair
-        "CP" => 8,
-        "PM" => 13,
-        "SE" => 9, 
-        "FSSD" => 11
+        "PHP" => 205, // key => value pair
+        "Networking" => 203,
+        "Arduino" => 305,
+        "JavaScript" => 504
     );
 
     // Creating an associative array using way#2: [ ]
@@ -41,33 +40,35 @@
     ];
 
     // a list of descriptions for these languages:
-        $descriptions = [
-            'HTML' => 'Display the page content',
-            'CSS' => 'Style the page content',
-            'JavaScript' => 'Interact with the user input',
-            'PHP' => 'Create Dynamic Pages'
-        ];
+    $descriptions = [
+        'HTML' => 'Display the page content',
+        'CSS' => 'Style the page content',
+        'JavaScript' => 'Interact with the user input',
+        'PHP' => 'Create Dynamic Pages'
+    ];
 
-        echo '<hr>';
-        print_r( $descriptions );
-        echo "<br>";
-        var_dump( $descriptions );
-        echo '<hr>';
+    echo '<hr>';
+    print_r( $descriptions );
+    echo "<br>";
+    var_dump( $descriptions );
+    echo '<hr>';
 
-        $cars = array(
-            'Honda' => 'Made in Japan',
-            'Kia' => 'Made in Korea',
-            'Dodge' => 'Made in USA'
-          );
-          print_r( $cars );
+    $cars = array(
+        'Honda' => 'Made in Japan',
+        'Kia' => 'Made in Korea',
+        'Dodge' => 'Made in USA'
+    );
+    
+    print_r( $cars );
 
-          $modules['module4']="Python";
-          echo "<br>";
-          var_dump( $modules );
+    // Adding a new key/value pair to the array "$modules"
+    $modules['module4']="Python";
+    echo "<br>";
+    var_dump( $modules );
 
-         $cars[ 'BMW' ] = 'Made in Germany';
-        echo '<hr>';
-        print_r( $cars );
+    $cars[ 'BMW' ] = 'Made in Germany';
+    echo '<hr>';
+    print_r( $cars );
 
         // again using the . for concatenation like + in JS,Java,Python
         echo "<br>Honda is a good car! ".$cars['Honda']." It's made in Japan."; // Honda is a good car! Made in Japan

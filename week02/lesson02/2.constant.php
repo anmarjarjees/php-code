@@ -50,15 +50,15 @@ For more info:
 /* 
 Constants are automatically global and can be used across the entire main script or inside any function
 */
-?>
 
-<!-- Ignore the HTML template -->
 
-<?php echo "<br>"; echo COLLEGE ?>
+echo "<br>"; echo COLLEGE;
 
-<?php print "<br>"; print COLLEGE ?>
+print "<br>"; print COLLEGE;
 
-<!-- no output for the php code below => no echo/print statement -->
-<?php COLLEGE ?>
+// Bellow no output for the php code below => no echo/print statement:
+COLLEGE;
 
+// there is NO HTML contents => skip/ignore the ? >
+// Ignore the HTML template
 

@@ -33,6 +33,7 @@ phpinfo();
     <p>I do like PHP</p>
     <p>Learning about PHP</p>
 
+    <!-- JavaScript Code Block: -->
     <script>
         // Our JS code
         console.log("testing");
