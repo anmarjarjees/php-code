@@ -91,7 +91,7 @@ if ( $myNumber % 2 != 0 ) {
   }
 
 
-  // Thee variables:
+// Thee variables:
 $exam1 = 80;
 $exam2 = 82;
 $exam3 = 88;
@@ -114,6 +114,13 @@ if ( $currentModule == 'JS' ) {
 } else {
   echo "Your current module $currentModule";
 }
+
+/*
+Q) What will be the output?
+1. We are still in JavaScript
+2. We are in the third week of PHP!"
+3. Your current module $currentModule
+*/
 
 echo "<hr>";
 $value1=100; // 100 as a value => int data type

@@ -37,6 +37,16 @@ if ($_POST) { // Since we used method="POST" => $_POST has some data => TRUE
     print_r( $_GET );
 } // end elseif of the main if block
 
+/*
+NOTE: 
+we can use a longer syntax:
+to check if post array has exactly the key/value of "submit" button:
+as you will see in the next examples:
+
+if (isset($_POST['submit'])) {   
+
+}
+*/
 // Please don't write any code for handling the form outside the if block!!!!
 ?>
 

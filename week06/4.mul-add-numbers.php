@@ -143,10 +143,14 @@ if (isset($_POST['submit'])) {
 
     // Placing the echo for printing the $answer below (it was used just for a quick test):
     // echo "<h3>The result is: $answer </h3>";
+    
     // We don't want to echo/print/write HTML5 elements outside the body!!!
 } // end of the main if block
 
-// NOTE: We don't place any PHP code regarding the form outside the main if condition!!!!
+/*
+IMPORTANT NOTE:
+We don't place any PHP code regarding the form outside the main if condition!!!!
+*/
 ?>
 
 <!DOCTYPE html>

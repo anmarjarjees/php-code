@@ -35,6 +35,13 @@ echo "<br>$employees[3]";
 echo "<br>$employees[4]";
 echo "<br>$employees[5]";
 
+/*
+The code in Java :-)
+for (int i=0; i < employees.size(); i++ ) {
+    System.out.println(employees[i]);
+}
+*/
+
 // but array size will change we can't hard code
 for ($i=0; $i<count($employees); $i++ ) {
     echo " $employees[$i]";
@@ -51,7 +58,7 @@ for ($i=0; $i<count($employees); $i++ ) {
 </head>
 <body>
 <h1>Our Employees</h1>
-    <!-- bad way -->
+    <!-- Bad Way :-( -->
     <ul>
         <li><?php echo $employees [0] ?></li>
         <li><?php echo $employees [1] ?></li>
@@ -66,6 +73,7 @@ for ($i=0; $i<count($employees); $i++ ) {
     <ul>
         <?php
             for ($i=0; $i<count($employees); $i++ ) {
+                // <li> and "employee name" and </li>
                 echo "<li>$employees[$i]</li>";
             }
         ?>

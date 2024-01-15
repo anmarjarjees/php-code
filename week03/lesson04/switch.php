@@ -1,6 +1,18 @@
 <?php
+/*
+In java :-)
+char grade ='C';
+String grade ="C";
+*/
 $grade="C";
     // using if for review:
+  /*
+    A => "Well done"
+    B => "Above Average"
+    C => "Average"
+    D => "Below Average"
+    F => "Try again"
+  */
 if ( $grade == "A" ) {
     echo "Well Done";
   } else if ( $grade == "B" ) {

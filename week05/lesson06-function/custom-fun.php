@@ -8,7 +8,7 @@ function functionName() {
     the code for this function
 }
 
-In Py:
+In Python:
 def functionName():
     the code for this function
 
@@ -17,7 +17,7 @@ public void functionName() {
     the code for this function
 }
 
-In JS:
+In JavaScript:
 function functionName() {
     the code for this function
 }
@@ -86,7 +86,8 @@ while the function was written/declared in line 90
 
 
 /*
-    Task:  like "Google" :-), create 2 functions:
+    Task: convert LB to KG    
+    like "Google" :-), create 2 functions:
     - to convert LB to KG
     - to convert KG to LB
 
@@ -106,7 +107,7 @@ while the function was written/declared in line 90
     or we can use the formulas for an approximate result
 */
 
-// Create our function first => convert lb to kg:
+// Step1: Create our function first => convert lb to kg:
 // this function accepts one value
 function convertLbToKg( $pound ) {
     // Google: Formula for an approximate result, divide the mass value by 2.205
@@ -114,10 +115,20 @@ function convertLbToKg( $pound ) {
     return $Kilogram;
   }
 
-
+// Step2: Call our function:
 // Then we need to call our function:
+$result = convertPoundToKilo(12);
+// echo ....
 echo "<br>" . convertLbToKg( 26 );
 echo "<br>" . convertLbToKg( 30 );
+
+/*
+In Java (Method):
+public double convertPoundToKilo(double pound) {
+    double kg = pound *  0.45359237;
+    return (kg);
+}
+*/
 
 /* 
   Task: converting KG to LB function

@@ -5,6 +5,12 @@
     echo "<hr>";
 
 /*
+To access the user's info: get or post
+> get => $_GET[]
+> post => $_POST[]
+*/
+
+/*
 Using our lovely function var_dumps()
 Dumps information about a variable
 */
