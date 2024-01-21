@@ -1,6 +1,6 @@
 <?php
 
-// Varaibles:
+// Variables:
 $firstName = "Alex"; // double quotes
 $lastName = 'Tonies'; // single quotes
 $strNum = "100"; // "100"+"100" = 100100
