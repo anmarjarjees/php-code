@@ -74,11 +74,10 @@ class Member {
 
 $member1 = new Member();
 /* 
-In Java:
-to access static method:
+In Java to access static method:
 Member.validatePassword()
 
-In PHP:
+In PHP to access any static member:
 Member::$hobby
 Member::$minPassLength 
 Member::validatePassword()

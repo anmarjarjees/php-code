@@ -10,8 +10,14 @@ class Member {
     A special method of the class
     */
     public function __construct($memberName, $memberEmail) {
-    // Java :-)
-    // name = memberName
+    /* 
+    In Java :-)
+    either => name = memberName 
+    or => this.name = name;
+
+    In Python:
+    self.name = name
+    */
         $this->name = $memberName;
         $this->email = $memberEmail;
 

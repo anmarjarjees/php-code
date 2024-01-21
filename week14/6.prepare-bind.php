@@ -79,9 +79,9 @@ TR: https://www.tutorialrepublic.com/php-tutorial/php-mysql-prepared-statements.
 // Bind parameters to statement object
 $stmt->bindParam(':title',$postTitle, PDO::PARAM_STR);
 $stmt->bindParam(':body',$postBody, PDO::PARAM_STR);
-$stmt->bindValue(':author',"Sarah Davidson"); // it's better to use bindParam() with a varaible "$author"
+$stmt->bindValue(':author',"Sarah Davidson"); // it's better to use bindParam() with a variable "$author"
 $stmt->bindParam(':published',$isPublished, PDO::PARAM_STR);
-$stmt->bindValue(':released','2021-10-08'); // it's better to use bindParam() with a varaible "$postCreatedDate"
+$stmt->bindValue(':released','2021-10-08'); // it's better to use bindParam() with a variable "$postCreatedDate"
 
 // STEP#3. Execute:
 // then we just need to execute the statement by calling execute() method with OUT any arguments!

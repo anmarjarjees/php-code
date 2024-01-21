@@ -93,7 +93,7 @@ class User {
 
     public function __construct($name="", $email="") {
         // $this => Refers to the current object
-        // we can use the same name for both: the property name and its value varaible:
+        // we can use the same name for both: the property name and its value variable:
         // LHS: (class property) Member.name by using the keyword "$this" 
         // RHS: (function parameter) $name
         $this->name = $name;

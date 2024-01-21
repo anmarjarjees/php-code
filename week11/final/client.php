@@ -10,6 +10,11 @@ require 'includes/header.php';
 Validate if there is NO logged-in user => redirect the user to the home page
 otherwise => display the client page
 if NO user is logged-in => go to other page, for example: index.php
+
+Logic/ Algorithm:
+if (No session value for username) Then: redirect the user to the home page and exit this one
+
+No need for else, if the condition is false (there is a user) continue loading the page
 */
 if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
      // if the user is not logged-in, we have to redirect them to the home page or the login page

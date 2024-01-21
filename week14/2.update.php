@@ -2,7 +2,6 @@
 // Include database config file => to get our PDO object 
 require_once 'include/db_connect.php';
 
-
 // Updating a record:
 // Assuming that we will update the record (post) with id value of "4"
 $postId = 4; // This is the post id for the record that we need to update
@@ -21,7 +20,7 @@ IMPORTANT NOTE:
 The following code is NOT useful => $isUpdated will be always be "true"
 if the SQL Statement are run successfully even if no record has been updated!
 
-You can try it by passing id that doesn't exist, the varaible isUpdated will be "true"!
+You can try it by passing id that doesn't exist, the variable isUpdated will be "true"!
 */
 // $isUpdated = $stmt->execute(['postTitle'=>$pTitle, 'postId'=>$postId]);
 /* if ($isUpdated) {

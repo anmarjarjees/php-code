@@ -62,18 +62,18 @@ Setting the DSN:
 DSN is for "Data Source Name" which is a nice way to save the required information
 for initializing our pdo object to connect to our database
 
-The DSN is just a string varaible that contains the following information as a string value:
+The DSN is just a string variable that contains the following information as a string value:
 1- The Database type (Prefix), if using MySQL, we have to specify => databaseType:
     example: mysql:
 2- The host name => host = ?
 3- The database => dbname = ?
 
-DSN value contains text and varaible, we need to concatenate them
+DSN value contains text and variable, we need to concatenate them
 In PHP we can use either one of these following two ways to create a dsn, please pick only one for sure!
 for demo and learning purposes I put the two ways below:
 */
 
-// Creating the DSN varaible (using different format of coding ways):
+// Creating the DSN variable (using different format of coding ways):
 
 // #1: We can set the variables and values of "dsn" variable using concatenating with .:
 $dsn = 'mysql:host='.$host.';dbname='.$dbname;

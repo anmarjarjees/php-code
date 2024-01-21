@@ -30,7 +30,12 @@ INSERT INTO `posts`
 VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')
 */
 
-// Bad idea to place the user's input immediately
+/*
+NOTE To Recap:
+Bad idea to place the user's input immediately!
+User can insert harmful SQL code/script "SQL-Injection"
+To avoid SQL-Injection, we use prepare statement :-)
+*/
 /* 
 $sql='INSERT INTO posts (title, body, author, published, released)
 VALUES('$postTitle','$postBody','$postAuthor','$isPublished','$postCreatedDate');'
@@ -56,6 +61,7 @@ executed by the corresponding PDOStatement object.
 Link: https://www.php.net/manual/en/pdostatement.rowcount
 */
 
+// execute() takes an associative array as parameter: Key => Value
 $isInserted= $stmt->execute(
     [
         'title'=>$postTitle,

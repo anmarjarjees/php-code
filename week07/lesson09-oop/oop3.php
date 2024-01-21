@@ -24,7 +24,7 @@ class Member {
         echo 'The class "' . __CLASS__ . '" was initiated!<br>';
     }
 
-    // getters and setters
+    // Adding Getters and Setters:
     public function getName() {
         return $this->name;
     }
@@ -32,8 +32,6 @@ class Member {
     public function setName($name) {
         $this->name = name;
     } 
-
-
 } // end class
 
 $member1 = new Member('Martin Smith','msmith@cbc.ca');

@@ -24,8 +24,9 @@ even if MySQL statement returned an empty result set!
 true => only means that the SQL statement has been run successfully
 */
 
-// I will leave this code for leaning and demo (useless to check the returned bool of execute())
-// We should NOT use $isFound boolean varaible to retrieve the True/False from execute!
+// I will leave this code for leaning and demo 
+// (useless code, just to check the returned bool of execute())
+// We should NOT use $isFound boolean variable to retrieve the True/False from execute!
 $isFound = $stmt->execute(['%'.$anyName.'%']);
 // testing:
 echo "<br>Dumping isFound: ";
@@ -43,6 +44,8 @@ if ($count) {
     // Remember: fetch() => for one record and fetchAll() => for many records
     $posts = $stmt->fetchAll(); // return a list of array(s)
     // $posts = is a list of 1 or many associative array(s)
+    // Testing:
+    // var_dump($posts);
 
     foreach ($posts as $post) {
         /* 
