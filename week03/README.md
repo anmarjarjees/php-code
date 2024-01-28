@@ -1,0 +1,13 @@
+# Week03 Code Files Sequence:
+- Lesson03:
+    - arrays1-indexed
+    - arrays2-associative
+- Lesson04:
+    - if-condition
+    - ternary
+    - switch
+    - my-page
+    - script
+- Lesson05:
+    - for
+    - for-array
