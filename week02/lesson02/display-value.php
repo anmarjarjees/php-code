@@ -83,7 +83,6 @@ print "<p>Here is the main paragraph</p>";
 
 // In Java: System.out.println("Max number is: " + number);
 
-
 // Concatenation => . 
 // one line for display the value of $firstName and <br> element:
 // IN JS, JAVA, C#, Python => + for concatenation
