@@ -1,4 +1,6 @@
 <?php
+// Elephant => PHP :-)
+
 // here is my php code
 
 /* 
@@ -6,10 +8,14 @@ comments Line1
 comments Line2
 */
 
-// our first php built-in function:
-phpinfo();
+// function => will do an action
+// In Java => we write our functions inside a class => so we call them Methods
+// Built-in function => phpinfo()
+phpinfo();  // Outputs information about PHP's configuration
 
 ?>
+
+<!-- adding HTML contents  -->
 <!DOCTYPE html>
 <html lang="en">
 

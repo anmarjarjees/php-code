@@ -21,7 +21,7 @@ Link: https://www.php.net/manual/en/language.types.declarations.php#language.typ
 // Variable in php:
 
 // Java Example => String firstName = "Alex";
-// Java Example => String language = 'PHP' [X WRONG] 
+// Java Example => String language = 'PHP'; [X WRONG] 
 // Java Example => char oneLetter = 'A' [OK VALID]
 // In Java => String firstName = "Alex";
 
@@ -175,6 +175,10 @@ $docTitle = "Learning PHP";
     <!-- Adding another block of PHP -->
     <?php
         echo "<hr>";
+
+        // we can call our variables :-)
+        echo $subject1, $subject2, $subject3; // works with bad format/layout! 
+
         // Data type => use a built-in function gettype()
         echo gettype($subject1)."<br>";
         echo gettype($age)."<br>";
@@ -214,15 +218,32 @@ $docTitle = "Learning PHP";
         <li>$subject3</li>    
     </ul>";
 
-    // notice the mistake below:
-    // using single quote will not output the values of the variables:
+   /*  
+   IMPORTANT NOTE:
+   ***************
+   Please notice the "mistake" below:
+   using single quote will not output the values of the variables: 
+   */
     echo '<ul>
         <li>$subject1</li>
         <li>$subject2</li>
         <li>$subject3</li>        
     </ul>';
+
+     // If you like to use the concatenation:
+    echo '<ul>
+         <li>'.$subject1.'</li>
+        <li>'.$subject2.'</li>
+        <li>'.$subject3.'</li>
+    </ul>';
     ?>
 
+   <!-- Or using simple ul with PHP code in between: -->
+    <ul>
+        <li><?php echo $subject1 ?></li>
+        <li><?php echo $subject2 ?></li>
+        <li><?php echo $subject3 ?></li>
+    </ul>
 
     <footer>
         <p>Designed and Developed by <?php echo $firstName; echo $lastName ?></p>

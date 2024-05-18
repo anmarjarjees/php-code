@@ -2,10 +2,13 @@
 $myTextBook="Learning JavaScript";
 $myTextBook='Learning PHP';
 
-// define (title,value)
+// define ('VARIABLE_NAME', value)
 define('COLLEGE','ABC Advanced Technology');
 
+// Be careful with printing the constant value
 echo "My college is COLLEGE";  // Notice that php will treat it as a literal text
+
+// We need to concatenate:
 echo "<br>My college is ".COLLEGE;
 // or with p element:
 echo "<p>My college is ".COLLEGE."</p>";
@@ -62,3 +65,11 @@ COLLEGE;
 // there is NO HTML contents => skip/ignore the ? >
 // Ignore the HTML template
 
+
+/* 
+IMPORTANT NOTE: 
+**************
+if we have no intention to add HTML contents,
+just pure PHP code,
+we can omit/skip the closing PHP tag ?>
+*/

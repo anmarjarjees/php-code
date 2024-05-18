@@ -59,6 +59,11 @@
     $result = $value1++ * 2; // 2 * 2 => 4 => result => then increment value1 after!!!!
     echo "<br>result: $result"; // result: 4
     echo "<br>our value1: $value1"; // our value1: 3
+    /* 
+    PHP will do/run the formula/equation first,
+    then increment the number later... 
+    because the ++ on the right!
+    */
 
     $number = 2;
     $final = ++$number * 2; // (2+1) => 3 * 2 = 6
