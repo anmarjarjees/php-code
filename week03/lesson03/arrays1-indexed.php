@@ -24,9 +24,17 @@
     
 	// like in JS:
     $myLuckyNumbers = [90, 34, 17, 21, 12];  // hard coding the values
+    // In JavaScript => let myLuckyNumbers = [90, 34, 17, 21, 12]; 
+    // In Java =>  int[] myLuckyNumbers = { 90, 34, 17, 21, 12 }
     
     // OR:
     $myExams = array (90,89,87,92,91);
+
+    // create/declare an empty array:
+    $myArray = [];
+    // In JS => let myArray = [];
+    // In Java => int[] myArray;
+    // In Java with specifying the size => int[] myArray = new int[6];
 
     // print ($myExams);
     // Array to string conversion in
@@ -86,8 +94,9 @@
     $userExams = [];
     echo "<hr>";
     var_dump($userExams);
-	 /* 
-    adding values:
+	
+    /* 
+    Adding values to an array:
     */
     // To add an element to an array in PHP => We don't have to specify the index value
     $userExams[] = 90; // PHP will automatically place 90 in the first index 0

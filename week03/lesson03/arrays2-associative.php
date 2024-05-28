@@ -3,6 +3,13 @@
 // Dictionary: key : value
 
 /* 
+Using the symbol "=>"
+> JS uses "=>" for "Arrow Function" (2015)
+> Java uses "=>" for "Lambda Expression"
+> PHP uses "=>" for "Associative Array"
+*/ 
+
+/* 
    array(
             key1  => value1,
             key2 => value2,

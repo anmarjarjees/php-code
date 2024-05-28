@@ -1,6 +1,6 @@
 <?php
 // Ternary Operator:
-// ****************  
+// ***************** 
 
 // take a simple  example using if statement:
     $avg = 50;
@@ -16,6 +16,4 @@
     // $variable = (condition) ? the value if the condition is true : the value if it's false;
     // (Condition) ? True : False
     $result2 = ($avg>=60) ? "You passed the module." : "You can have another assignment.";
-
-
 ?>
