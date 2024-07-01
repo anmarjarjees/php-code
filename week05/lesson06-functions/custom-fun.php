@@ -3,7 +3,7 @@
 
 // user-defined function or custom function
 /*
-In PHP:
+Function Template in PHP:
 function functionName() {
     the code for this function
 }
@@ -21,6 +21,8 @@ In JavaScript:
 function functionName() {
     the code for this function
 }
+
+Methods (Java and C#) <==> Functions (PHP, JavaScript) 
 */
 
 
@@ -303,6 +305,20 @@ $testingArray = [ 1, 2, "ABC", 3 ];
 echo "The total of testing array is: " . getTotalPrice($testingArray);
 
 
+/* 
+Final Task:
+Create a function to calculate the total (summation) of any two or more numbers
+Hints:
+- Using "Variable-Length":
+Link: https://www.php.net/manual/en/functions.arguments.php#functions.variable-arg-list
+- Using array-sum() built-in function:
+Link: https://www.php.net/manual/en/function.array-sum.php
+*/
+function calculateSum(...$numbers) {
+    $sum = array_sum($numbers);
+    return $sum;
+}
+ 
 /*
 Good to know!
 Type declarations:

@@ -78,10 +78,13 @@ if (isset($_POST['submit'])) {
         so in such case you can use the proper way which to echo $_SERVER['PHP_SELF']    
     -->
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-    <!-- 
-        In order for PHP to be able to take the values of all the form
-        elements (controls), each form element has to have the "name" 
-        attribute with a unique value.
+        <!-- 
+            NOTES:
+            1. In order for PHP to be able to take the values of all the form
+            elements (controls), each form element has to have the "name" 
+            attribute with a unique value.
+
+            2. Yes, we should use the HTML label elements for each input field label
         -->
         <div> 
             First Name:
@@ -114,6 +117,12 @@ if (isset($_POST['submit'])) {
         </div>
         
         <div> 
+            <!-- 
+                Company offers 3 types of membership:
+                    - Premium
+                    - Standard
+                    - Basic
+            -->
             Membership: <br>
             <!-- 
                 At least one item and only one item should be selected in radio buttons

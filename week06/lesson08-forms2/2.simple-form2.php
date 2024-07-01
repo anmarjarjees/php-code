@@ -1,6 +1,11 @@
 <?php
-// my php code to handle the form is written here (instead of using another/external php file):
-// I want to handle the form (manipulate the user input) in this same page (file):
+/* 
+NOTE:
+My entire php code to handle the form is written here (instead of using another/external php file),
+I want to handle the form (manipulate the user input) in this same page (file):
+*/
+
+// echo "Thank you for submitting the form!";
 
 // testing: output the array $_GET()
 // var_dump($_POST); // array(0) { }
@@ -15,6 +20,15 @@ array(5) {
 }
 */
 echo "<hr>";
+/* 
+THE IMPORTANT LOGIC TO CONSIDER:
+********************************
+
+if (the form is submitted) {
+        // your entire code for handling the form must be written inside the if block
+}
+*/
+
 
 // Checking if the form is submitted => start manipulating the form:
 // One of the ways (not the ideal solution or not the only one, we will check another one later):
@@ -24,18 +38,39 @@ echo "<hr>";
 // if POST Array has a value (or if it's true)
 // if $_POST array has any value =>  the form is submitted
 // so when $_POST is empty => it means the form is not submitted yet  
+
+// This condition will always be false => there is NO method ="GET"
+if ($_GET) {
+    echo "You will never see me, unless you change the the method to GET";
+}
+
+/* 
+To Recap:
+*********
+Empty array in PHP is false:
+> if ($_POST) condition will be false => if $_POST array is empty
+> if ($_POST) condition will be true => if $_POST array is NOT empty
+*/
 if ($_POST) { // Since we used method="POST" => $_POST has some data => TRUE
     // put ALL our code here inside the if block:
+    
     // 1. Getting the user full name:
     $fullName = $_POST['name'];
+    
     // 2. Getting the user email:
     $email = $_POST['email'];
+
+    // 3. Getting the user comments
+    $comments = $_POST['comments'];
+
     echo "<hr>";
     echo "<br>Thank you, $fullName for submitting the form!";
     echo "<br>Notice that this email address: $email will not be shared with other clients.";
 } elseif ($_GET) { // Since we used method="GET" => $_GET has no data (empty) => FALSE
     print_r( $_GET );
-} // end elseif of the main if block
+} // end elseif of the main if block (form is submitted)
+
+// notice that nothing goes here...
 
 /*
 NOTE: 
@@ -48,6 +83,25 @@ if (isset($_POST['submit'])) {
 }
 */
 // Please don't write any code for handling the form outside the if block!!!!
+
+
+    // Let's do some testing: 
+    // **********************
+    
+    // $_SERVER => Associative Array
+    // print the $_SERVER
+    //echo $_SERVER; 
+    // Warning: Array to string conversion
+    // echo and print => Arrays (Wrong) 
+
+    // print_r() = var_dump()
+    echo "<hr>";
+    // print_r($_SERVER);
+    echo "<hr>";
+
+    /*    foreach ($_SERVER as $key => $value) {
+        echo "<br><br>$key => $value";
+    } */
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +119,8 @@ if (isset($_POST['submit'])) {
      as did in the previous example
     
     OR instead of submitting the form into a different PHP file where we need to write our code,
-    we can simply submit the form to the same page (our php code is written in the same page at the top)
+    we can simply submit the form to the same page 
+    (our php code is written in the same page at the top)
     [As you will do in your second assignment (no need to create a separate file!)]
     
     Three options/solutions or three possible values for "action" attribute:
@@ -84,6 +139,9 @@ if (isset($_POST['submit'])) {
     Option 3: (ideal choice): action = $_SERVER['PHP_SELF']
     remember the super global array $_SERVER contains all the information about the server
     and the current file!
+
+    $_SERVER => a super global associative array: 
+    to refer to the hosting server for our website and the current file
 	
 	To summarize:
 	1: action="" <= Against HTML Validation
@@ -93,6 +151,8 @@ if (isset($_POST['submit'])) {
     We have the key named "PHP_SELF" => this key returns the file name with its full path!
     $_SERVER['PHP_SELF'] => this value will be the file name with its full path
     -->
+
+    
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" id="my-from" class="main-form">
         <div>
             <label for="name">Full Name:</label>

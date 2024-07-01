@@ -22,7 +22,7 @@ Link: https://www.php.net/manual/en/language.types.declarations.php#language.typ
 
 // Java Example => String firstName = "Alex";
 // Java Example => String language = 'PHP'; [X WRONG] 
-// Java Example => char oneLetter = 'A' [OK VALID]
+// Java Example => char oneLetter = 'A' [OK Correct]
 // In Java => String firstName = "Alex";
 
 // Weakly type language 
@@ -50,7 +50,9 @@ method => a function written inside a class
 function => written inside the main script (PHP, Python, and JavaScript)
 */
 echo ("Hello World!");
-print("Hello World!");
+// Or just:
+echo "Hello World!";
+print ("Hello World!");
 // Hello World!Hello World!
 
 // print/echo html elements!

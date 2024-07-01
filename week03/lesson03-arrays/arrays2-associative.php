@@ -1,4 +1,10 @@
 <?php
+// Associative Array:
+// Dictionary: key : value (Arrow)
+// JS "=>" Arrow Function (2015)
+// Java "=>" Lambda Expression 
+// PHP "=>" Associative Array
+
 // associative array is built on Key-Value pairs of elements
 // Dictionary: key : value
 

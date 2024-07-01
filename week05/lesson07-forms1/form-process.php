@@ -10,9 +10,25 @@ To access the user's info: get or post
 > post => $_POST[]
 */
 
+/* 
+To review:
+Associative Arrays: key => value
+
+Example:
+
+$cars = [
+    "Toyota" => "Made in Japan",
+    "BMY" => "Made in Germany",
+    "Kia" => "Made in Korea",
+];
+*/
+
 /*
 Using our lovely function var_dumps()
 Dumps information about a variable
+
+> $_GET or $_POST "keys" => the values of the HTML "name" attribute
+> $_GET or $_POST "values" => the user's input or selection (radio and checkbox)
 */
 // testing: output the array $_GET()
 var_dump($_GET); // Empty => array(0) { }

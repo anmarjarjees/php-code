@@ -72,8 +72,11 @@ if (isset($_POST['submit'])) {
     // 3. create the function to multiply the two numbers
     function mulNumbers($x, $y) {
         return $x * $y;
-        // Just for learning, the following statements (code) will not run
-        // because it's written after the return keyword (like JS)
+        /*    
+        NOTE:
+        Just for learning, the following statements (code) will be ignored (not run)
+        because it's written after the return keyword (like JS) 
+        */
         alert("I am the alert function!"); // JS!!! :-)
         echo "<h1>Here is my heading</h1>";
     }
@@ -103,7 +106,7 @@ if (isset($_POST['submit'])) {
 
   	if "Subtraction" radio button is selected => execute/call the function subNumbers()
 
-    if "Multiplication" radio button is selected => execute/call the function multNumbers()
+    if "Multiplication" radio button is selected => execute/call the function mulNumbers()
 
   	if "Division" radio button is selected => execute/call the function divNumbers()
 

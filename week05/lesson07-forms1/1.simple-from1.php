@@ -1,3 +1,6 @@
+<?php
+    // we can write our code for handling the form (next lecture)
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,6 +145,14 @@
         </div>
     </form>
 
-    
+    <!-- 
+    To recap:
+        > get or GET:
+            - it should be used ONLY with "search" form (nothing else)
+            - info will be attached to the URL
+
+        > post or POST:
+            - it should be used with all the types of forms (except search)
+    -->    
 </body>
 </html>

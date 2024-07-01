@@ -153,8 +153,11 @@
 
     <h1>Employees</h1>
     <ul>
+        <!-- print the first employee -->
         <li><?php echo $employees[0] ?></li>
+          <!-- print the second employee -->
         <li><?php echo $employees[1] ?></li>
+        <!-- so on... for the rest...  -->
         <li><?php echo $employees[2] ?></li>
         <!-- <li><?php echo $employees[3] ?></li> -->
     </ul>

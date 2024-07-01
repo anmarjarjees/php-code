@@ -12,8 +12,8 @@ comments Line2
 // In Java => we write our functions inside a class => so we call them Methods
 // Built-in function => phpinfo()
 phpinfo();  // Outputs information about PHP's configuration
-
 ?>
+<!-- Comments in HTML -->
 
 <!-- adding HTML contents  -->
 <!DOCTYPE html>
@@ -34,10 +34,9 @@ phpinfo();  // Outputs information about PHP's configuration
 </head>
 
 <body>
-
+    <h1>Learning PHP</h1>
     <h2>Welcome to PHP</h2>
-    <p>I do like PHP</p>
-    <p>Learning about PHP</p>
+    <p>PHP is used for creating Web Application.</p>
 
     <!-- JavaScript Code Block: -->
     <script>

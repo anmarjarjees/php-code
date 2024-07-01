@@ -6,7 +6,13 @@ Quick Review About Variable Scopes:
 ***********************************
 */
 
-// declaring a global variable (inside the main script Not inside a function)
+/* 
+Global Variables:
+are declared inside the main script Not inside a function
+
+To learn more:
+Link: https://www.php.net/manual/en/language.variables.scope.php
+*/
 $course="PHP"; 
 
 function printAddition($x,$y) {
@@ -24,7 +30,10 @@ printAddition();
 echo "<br>The 'addition' local variable outside the function: $addition"; // Error => local variable => local scope
 
 /*
-Super Global Variables (Associative Arrays):
+Superglobals: Built-in variables that are always available in all scopes
+Link: https://www.php.net/manual/en/language.variables.superglobals.php
+
+Superglobal Variables => Associative Arrays:
 They are like associative arrays (in written in capital letters)
 - $_GET => a super global associative array: with HTML form if the method="GET" 
 - $_POST => a super global associative array: with HTML form if the method="POST"

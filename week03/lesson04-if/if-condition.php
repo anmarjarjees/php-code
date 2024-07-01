@@ -114,6 +114,10 @@ if ( $currentModule == 'JS' ) {
 } else {
   echo "Your current module $currentModule";
 }
+/* 
+To read more about "Comparison Operators":
+Link :https://www.php.net/manual/en/language.operators.comparison.php
+*/
 
 /*
 Q) What will be the output?
