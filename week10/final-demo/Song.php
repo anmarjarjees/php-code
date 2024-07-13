@@ -46,4 +46,11 @@ Class Song {
     public function setSinger($songSinger) {
         $this->singer=$songSinger;
     }
+
+    /* 
+     final => this function cannot be overridden 
+    */
+    final public function welcomeMsg() {
+        echo "Welcome to our music store!";
+    }
 } // end class Song

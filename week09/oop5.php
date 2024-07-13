@@ -1,7 +1,7 @@
 <?php
 /* 
 Accessing any "static" member (Property or Method)
-is not relative or related or connected to an object/instance of that class!
+Like in Java and C#, static members are not relative or related or connected to an object/instance of that class!
 it's relative/related to the class itself
 To access any static member:
 - ClassName::property
@@ -43,6 +43,14 @@ class Member {
     */
     
     // in Java => Access Modifier - Static - return type - Method Name 
+
+    /* 
+    Creating a static method:
+    */
+    public static function showClubName() {
+        echo "Club Name: ABC Main Stories";
+    }
+
     public static function validatePassword($password) {
         // Uncaught Error: Using $this when not in object context
         if (strlen($password) >= self::$minPassLength )
@@ -74,17 +82,32 @@ class Member {
 
 $member1 = new Member();
 /* 
-In Java to access static method:
+In Java to access static method "validatePassword" for example:
 Member.validatePassword()
 
-In PHP to access any static member:
+The typical way to access static members  (properties or methods)in PHP
+is by using the scope resolution operator :: with the class name:
 Member::$hobby
 Member::$minPassLength 
 Member::validatePassword()
+
+However, PHP also allows accessing static members via an instance of the class! 
+which can be confusing because it mixes instance and class concepts.
 */
+
 // The syntax: ClassName::staticPropertyName
 // The syntax: ClassName::staticMethodName()
 // The syntax: ClassName::staticCONSTANT
+/*  
+This is the correct way to access any static member
+In Java ClassName.staticMemberName
+In PHP ClassName::staticMemberName
+*/
+echo "<br>";
+echo Member::showClubName(); // correct way to access static methods
+echo "<br>";
+echo $member1->showClubName(); // incorrect way to access static methods (although its works)
+/* Although it works (technically allowed) but NOT recommended! */
 
 echo Member::$minPassLength; // 8
 // Review: Below are different techniques to out our text:

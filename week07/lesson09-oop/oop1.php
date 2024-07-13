@@ -52,6 +52,10 @@ class Member {
     $this => refers to the current instance/object
     $this => is used to access the instance variables (fields) inside the class
     $this => can NOT be used to access the class variables
+
+    > In Python => self.name
+    > In PHP => Java, JS => "this"
+    - Example In Java => this.name = name;
     */
     function getCity() {
         return $this->city;
